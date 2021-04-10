@@ -5,9 +5,12 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import Navbar from './components/navbar';
+import Navbar from './components/navbar/navbar';
 import Challenges from './pages/challenges';
 import Home from './pages/home';
+import Inspiration from './pages/inspiration';
+import Jokes from './pages/jokes';
+import Login from './pages/login';
 
 function App() {
   return (
@@ -17,9 +20,19 @@ function App() {
       <Route path="/challenges">
         <Challenges />
       </Route>
+      <Route path="/jokes">
+        <Jokes />
+      </Route>
+      <Route path="/inspiration">
+        <Inspiration />
+      </Route>
+      <Route path="/login">
+        <Login />
+      </Route>
       <Route path="/">
         <Home />
       </Route>
+    
     </Switch>
   </Router>
   );

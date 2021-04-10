@@ -15,6 +15,15 @@ const Navbar = () => (
                     <li className="nav-item">
                         <Link to="/challenges" className="nav-link" aria-current="page" href="#">Challenges</Link>
                     </li>
+                    <li className="nav-item">
+                        <Link to="/inspiration" className="nav-link" aria-current="page" href="#">Inspiration</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to="/jokes" className="nav-link" aria-current="page" href="#">Jokes</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to="/login" className="nav-link" aria-current="page" href="#">Login</Link>
+                    </li>
                 </ul>
             </div>
         </div>

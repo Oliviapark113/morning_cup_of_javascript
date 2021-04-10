@@ -3,12 +3,12 @@ import Container from "../components/container/container"
 import Row from "../components/row/row"
 import Col from "../components/col/col"
 
-const Home =() =>(
+const Login =() =>(
     <Container>
-        <Row>
-        <Col>Home</Col>
-        </Row>
-    </Container>
+    <Row>
+    <Col>Login</Col>
+    </Row>
+</Container>
 )
 
-export default Home
+export default Login
