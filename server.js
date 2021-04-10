@@ -5,6 +5,8 @@ const apiRoutes = require('./routes/api-routes')
 const PORT = process.env.PORT || 3001;
 const app = express();
 
+
+
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/morning_cup_of_javascript");
 
 // Define middleware here

@@ -2,9 +2,20 @@ import React from "react"
 
 import { Link } from "react-router-dom"
 
+import { useAuth0 } from "@auth0/auth0-react";
+import LogoutButton from "../logout-button/logout-button"
+import LoginButton from "../login-button/login-button"
 
-const Navbar = () => (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+
+
+const Navbar = () => {
+
+    const { isAuthentificated } = useAuth0();
+
+
+
+
+    return (<nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
             <Link to="/" className="navbar-brand" href="#">Home</Link>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,13 +33,14 @@ const Navbar = () => (
                         <Link to="/jokes" className="nav-link" aria-current="page" href="#">Jokes</Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="/login" className="nav-link" aria-current="page" href="#">Login</Link>
+                    {isAuthentificated? <LogoutButton/> :<LoginButton/>}
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-)
+    )
+}
 
 
 export default Navbar 
