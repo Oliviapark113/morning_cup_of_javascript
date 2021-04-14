@@ -5,12 +5,15 @@ import { Link } from "react-router-dom"
 import { useAuth0 } from "@auth0/auth0-react";
 import LogoutButton from "../logout-button/logout-button"
 import LoginButton from "../login-button/login-button"
+import SignupButton from "../sign-up/signup-button"
+
+
 
 
 
 const Navbar = () => {
 
-    const { isAuthentificated } = useAuth0();
+    const { isAuthenticated } = useAuth0();
 
 
 
@@ -33,7 +36,10 @@ const Navbar = () => {
                         <Link to="/jokes" className="nav-link" aria-current="page" href="#">Jokes</Link>
                     </li>
                     <li className="nav-item">
-                    {isAuthentificated? <LogoutButton/> :<LoginButton/>}
+                    {isAuthenticated? <LogoutButton/> :<LoginButton/>}
+                    </li>
+                    <li className="nav-item">
+                    {isAuthenticated?<Link to="/profile" className="nav-link" aria-current="page" href="#">Profile</Link>:<SignupButton/>}
                     </li>
                 </ul>
             </div>

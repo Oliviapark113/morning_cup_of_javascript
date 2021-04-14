@@ -11,6 +11,8 @@ import Home from './pages/home';
 import Inspiration from './pages/inspiration';
 import Jokes from './pages/jokes';
 import Login from './pages/login';
+import Profile from './pages/profile'
+
 
 function App() {
   return (
@@ -28,6 +30,9 @@ function App() {
       </Route>
       <Route path="/login">
         <Login />
+      </Route>
+      <Route path="/profile">
+        <Profile />
       </Route>
       <Route path="/">
         <Home />
