@@ -6,7 +6,7 @@ import "./style.css"
 const Article = (
   {title, img, author, desc, content, src, link}
   ) => {
-console.log(content)
+// console.log(content)
 const image = <img src={img} className="img-fluid img" alt={title}/>
   return (
     <div className="card">
