@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const db = require('../models')
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/challengesdb");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/morning_cup_of_javascript");
 
 const challengesSeed = [
   {
