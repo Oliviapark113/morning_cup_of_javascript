@@ -6,7 +6,7 @@ import Col from "../components/col/col"
 const Challenges =() =>(
     <Container>
     <Row>
-    <Col>Challenges</Col>
+    <Col>Challenges hello</Col>
     </Row>
 </Container>
 )
