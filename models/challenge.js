@@ -15,10 +15,10 @@ const challengesSchema = new Schema({
       type: String
     },
     difficulty: {
-      type: String
+      type: Number
     }
 })
 
-const Challenges = mongoose.model("Challenges", challengesSchema)
+const Challenge = mongoose.model("Challenge", challengesSchema)
 
-module.exports = Challenges
+module.exports = Challenge

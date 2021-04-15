@@ -1,3 +1,3 @@
 module.exports = {
-  Challenges: require("./challenges.js")
+  Challenge: require("./challenge.js")
 };
