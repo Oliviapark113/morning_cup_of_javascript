@@ -1,6 +1,10 @@
 import axios from 'axios'
 
 export default {
+  getChallenges: function() {
+    return axios.get("/api/challenges")
+  },
+
   getChallenge: function(id) {
     return axios.get("/api/challenges/" + id)
   },

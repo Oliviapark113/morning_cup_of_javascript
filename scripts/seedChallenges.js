@@ -30,10 +30,31 @@ const challengesSeed = [
   },
 ]
 
+const saveChallengesSeed = {
+  email: "oliviaypark113@gmail.com",
+}
+
+
+
+
 const runSeeder = async () => {
   try {
+    //clear datas each time run .. 
+    await db.SavedChallenge.remove({})
     await db.Challenge.remove({})
-    await db.Challenge.insertMany(challengesSeed, { raw: true })
+
+    const response = await db.Challenge.insertMany(challengesSeed, { raw: true })
+
+    const challengeId = response.map(challenge => console.log(challenge))
+
+    const saveChallengeData ={
+      ...saveChallengesSeed,
+      challenges : challengeId 
+    }
+
+    const savedChallenge = await db.SavedChallenge.create(saveChallengeData)
+
+    await db.Challenge.update({}, {savedChallenge: savedChallenge._id})
   } catch(err) {
     throw new err
   }
