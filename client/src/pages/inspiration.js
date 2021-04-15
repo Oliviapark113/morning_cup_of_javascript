@@ -48,7 +48,13 @@ function callNPM()  {
     return (
     <Container>
         <Row>
-            <Col>Inspiration</Col>
+            <Col className="col-8">
+                Inspiration with button
+                </Col>
+                <Col
+                className="col-4">
+                Inspiration results
+                </Col>
         </Row>
     </Container>
 )
