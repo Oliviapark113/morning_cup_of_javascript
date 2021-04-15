@@ -4,6 +4,7 @@ import Container from "../components/container/container"
 import Row from "../components/row/row"
 import Col from "../components/col/col"
 import Arrays from '../utils/arrays'
+import RandomButton from '../components/random-button/random-button'
 
 
 
@@ -20,44 +21,46 @@ const Inspiration = () => {
         api: {},
         framework: {}
     })
-    useEffect(() => {
-        seeding()
-    },[])
-    
+    // useEffect(() => {
+    //     seeding()
+    // }, [])
 
-function seeding()  {
- setIdea({
-    npm:arrayRandomizer(Arrays.searchArray),
-    api:arrayRandomizer(Arrays.apiArray), 
-    framework:arrayRandomizer(Arrays.frameworkArray)  
-    })   
-    callNPM()
-}
-    
 
-function callNPM()  {
-    axios.get(`https://api.npms.io/v2/search?q=${idea.npm}`)
+    function seeding() {
+        setIdea({
+            npm: arrayRandomizer(Arrays.searchArray),
+            api: arrayRandomizer(Arrays.apiArray),
+            framework: arrayRandomizer(Arrays.frameworkArray)
+        })
+        callNPM()
+    }
+
+
+    function callNPM() {
+        axios.get(`https://api.npms.io/v2/search?q=${idea.npm}`)
             .then(response => {
                 const searchResults = response.data.results
                 console.log(searchResults[Math.floor(Math.random() * searchResults.length)])
             })
             .catch(err => console.log(err))
 
-}
+    }
 
     return (
-    <Container>
-        <Row>
-            <Col className="col-8">
-                Inspiration with button
+        <Container>
+            <Row>
+                <Col className="col-8">
+                    <div className="d-grid gap-2 col-6 mx-auto">
+                        <RandomButton className="btn btn-primary" onClick={seeding} type="button">INSPIRE ME!!</RandomButton>
+                    </div>
                 </Col>
                 <Col
-                className="col-4">
-                Inspiration results
+                    className="col-4">
+                    Inspiration results
                 </Col>
-        </Row>
-    </Container>
-)
+            </Row>
+        </Container>
+    )
 }
 
 export default Inspiration
