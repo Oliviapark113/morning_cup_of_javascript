@@ -2,21 +2,16 @@ const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
 const savedChallengesSchema = new Schema({
-    title: {
-      type: String
+    email: {
+      type: String,
+      require: true
     },
-    starterCode: {
-      type: String
-    },
-    question: {
-      type: String
-    },
-    answer: {
-      type: String
-    },
-    difficulty: {
-      type: Number
-    }
+    challenges: [
+      {
+          type: Schema.Types.ObjectId,
+          ref: "Challenge"
+      }
+    ]
 })
 
 const SavedChallenge = mongoose.model("SavedChallenge", savedChallengesSchema)
