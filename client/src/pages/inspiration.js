@@ -6,7 +6,7 @@ import Col from "../components/col/col"
 import Arrays from '../utils/arrays'
 import RandomButton from '../components/random-button/random-button'
 import InspirationResults from "../components/inspiration-results/inspiration-results"
-// import InspirationCheckboxes from "../components/inspiration-checkboxes/inspiration-checkboxes"
+import InspirationCheckboxes from "../components/inspiration-checkboxes/inspiration-checkboxes"
 
 
 
@@ -19,7 +19,10 @@ const arrayRandomizer = (array) => {
 
 const Inspiration = () => {
     const [idea, setIdea] = useState({
-        npm: '',
+        npm: {
+            name: '',
+            locationUrl: ''
+        },
         api: {
             name: '',
             locationUrl: ''
@@ -31,9 +34,9 @@ const Inspiration = () => {
     })
 
     useEffect(() => {
-        if (idea.npm === '')seeding()
+        if (idea.npm === '') seeding()
         else callNPM()
-    }, [idea.npm])
+    }, [idea.npm.name])
 
     function seeding() {
         const npmTerm = arrayRandomizer(Arrays.searchArray)
@@ -43,30 +46,42 @@ const Inspiration = () => {
         console.log(apiObject)
         console.log(frameObject)
         setIdea(
-            {npm: npmTerm,
-            api: apiObject,
-            framework: frameObject}
+            {
+                npm: { name: npmTerm },
+                api: apiObject,
+                framework: frameObject
+            }
         )
     }
     function handleClick() {
         seeding()
-        // callNPM()
     }
     function callNPM() {
         // console.log(idea)
-        axios.get(`https://api.npms.io/v2/search?q=${idea.npm}`)
+        axios.get(`https://api.npms.io/v2/search?q=${idea.npm.name}`)
             .then(response => {
                 const searchResults = response.data.results
-                // console.log(searchResults)
-                // filter logic maintenance/quality
-                const searchNpm = searchResults[Math.floor(Math.random() * searchResults.length)]
-                console.log(searchNpm)
+                let lucky = searchResults.filter(function (npmPackage) {
+                    return npmPackage.score.final > 0.4
+                });
+                console.log(lucky)
+                const searchNpm = lucky[Math.floor(Math.random() * lucky.length)]
+                setIdea({ ...idea, npm: { ...idea.npm, locationUrl: searchNpm.package.links.npm } })
             })
             .catch(err => console.log(err))
     }
 
+
+function handleChange(e) {
+    console.log(e)
+    e.preventDefault()
+}
+
     return (
         <Container>
+            <Row>
+                <InspirationCheckboxes onChange={handleChange}/>
+            </Row>
             <Row>
                 <Col className="col-8">
                     <div className="d-grid gap-2 col-6 mx-auto">
@@ -75,13 +90,14 @@ const Inspiration = () => {
                 </Col>
                 <Col
                     className="col-4">
-                                   <InspirationResults
+                    <InspirationResults
 
-                                   npm={idea.npm}
-                                   api={idea.api.name}
-                                   apiLink={idea.api.locationUrl}
-                                   framework={idea.framework.name}
-                                   frameworkLink={idea.framework.locationUrl}
+                        npm={idea.npm.name}
+                        npmLink={idea.npm.locationUrl}
+                        api={idea.api.name}
+                        apiLink={idea.api.locationUrl}
+                        framework={idea.framework.name}
+                        frameworkLink={idea.framework.locationUrl}
 
                     />
 
@@ -98,3 +114,6 @@ export default Inspiration
                         // npm={ === null ? "" : `${idea.npm}`}
                         // api={ === null ? "" : `${idea.api}`}
                         // framework={ === null ? "" : `${idea.framework}`}
+
+// delete list
+ // wisp, faries
