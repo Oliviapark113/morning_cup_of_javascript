@@ -1,32 +1,31 @@
 import React, {useState, useEffect} from "react"
 import Container from "../components/container/container"
-// import Row from "../row/row"
-// import Col from "../col/col"
+import ChallenegsAPI from "../utils/challengesAPI"
+import Row from "../components/row/row"
+import Col from "../components/col/col"
 
 import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-java";
 import "ace-builds/src-noconflict/theme-github";
 
 
-const savedChallenge = () => {
+const SavedChallenge = () => {
 
 
-    function onChange(newValue) {
-        console.log("change", newValue);
-      }
+    const getSavedChallenges = () => {
+        ChallenegsAPI.getSavedChallenges()
+        .then(challenge => {
+          console.log(challenge)
+        })
+    }
 
-    // const [savedChallenges, setSavedChallenges] = useState([])
+    useEffect(()=>{
+        getSavedChallenges()
+    }, [])
 
-    // const getSavedChallenges = () => {
-    //     ChallenegsAPI.getSavedChallenges()
-    //     .then(storedChallenge => {
-    //         setSavedChallenges(storedChallenge.data)
-    //     })
-    // }
-
-    // useEffect(()=>{
-    //     getSavedChallenges()
-    // }, [])
+  const onChange = (newValue) => {
+      console.log("change", newValue);
+    }
 
   return(<Container>
           <AceEditor
@@ -39,4 +38,4 @@ const savedChallenge = () => {
     </Container>)
 }
 
-export default savedChallenge
+export default SavedChallenge

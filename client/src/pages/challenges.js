@@ -6,12 +6,14 @@ import Col from "../components/col/col"
 import ChallenegsAPI from "../utils/challengesAPI"
 import AllChallenges from "../components/allChallenges/allChallenges"
 import axios from "axios"
+import savedChallenge from "./savedChallenge"
 
 
 const Challenges =() =>{
 
     
     const[challenges, setChallenges] = useState([])
+    const [storedChallenges, setStoredChallenges] = useState([])
 
     const history = useHistory()
 
@@ -35,8 +37,7 @@ const Challenges =() =>{
 
         }
 
-        setChallenges(result)
-        
+        setChallenges(result)   
 
     }
 
@@ -65,11 +66,14 @@ const Challenges =() =>{
     ChallenegsAPI.addSavedChallenge(challengeData)
     .then(response =>{
         console.log(JSON.parse(response.config.data))
+        setStoredChallenges([...storedChallenges, JSON.parse(response.config.data)])
         history.push("/savedChallenge")
     })
     .catch(err => console.log(err))
 
     }
+
+    console.log(storedChallenges)
 
 
     return (

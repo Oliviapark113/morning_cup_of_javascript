@@ -9,9 +9,7 @@ const AllChallenges= ({challenges, handleSave}) =>(
         <Row className="challenge-row" >
             <Col className="col-md-12">
             {challenges.map(challenge => {
-                   console.log(challenge)
                  let difficulty = "easy"
-
                  if(challenge.rank.id > -8 ){
                      difficulty = "hard"
                  }
