@@ -5,6 +5,10 @@ export default {
     return axios.get("/api/challenges")
   },
 
+  saveChallenges: function(data) {
+    return axios.post("/api/challenges")
+  },
+
   getChallenge: function(id) {
     return axios.get("/api/challenges/" + id)
   },

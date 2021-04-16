@@ -12,6 +12,7 @@ import Inspiration from './pages/inspiration';
 import Jokes from './pages/jokes';
 import Login from './pages/login';
 import Profile from './pages/profile'
+import SavedChallenge from "./pages/savedChallenge"
 
 
 function App() {
@@ -33,6 +34,9 @@ function App() {
       </Route>
       <Route path="/profile">
         <Profile />
+      </Route>
+      <Route path="/savedChallenge">
+        <SavedChallenge />
       </Route>
       <Route path="/">
         <Home />

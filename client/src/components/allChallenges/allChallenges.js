@@ -6,34 +6,26 @@ import {Link} from "react-router-dom"
 
 const AllChallenges= ({challenges}) =>(
     <Container>
-        <Row className="challenge-row">
+        <Row className="challenge-row" >
             <Col className="col-md-12">
-            {challenges.map(challenge=>
-                 ( <ul className="challege-list">
-                  <li className="challenge-title">
-                      <Link to="/savedChallenge" aria-current="page" href="#">
-                      {challenge.title}
-                      </Link>
-                  </li>
+            {challenges.map(challenge => {
+                   console.log(challenge)
+                 let difficulty = "easy"
 
-                  <li className="challenge-question">
-                   {challenge.question}
-                  </li>
+                 if(challenge.rank.id > -5 ){
+                     difficulty = "hard"
+                 }
+                   return(
+                     <ul className="challenge-list" key={challenge.id}>
+                         <li className="name">{challenge.name}</li>
+                         <li className="rank">{difficulty}</li>
+                         <li className="rank">{challenge.url}</li>
+                     </ul>
 
-                  <li className="challenge-difficulty">
-                   {challenge.difficulty}
-                  </li>
+                   )
 
-                  <li className="challenge-answer">
-                   {challenge.answer}
-                  </li>
-
-                 </ul>
-
-
-                 )
-
-            )}
+            }
+        )}
             </Col>
         </Row>
         

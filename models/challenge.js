@@ -2,22 +2,20 @@ const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
 const challengesSchema = new Schema({
-    title: {
+    name: {
       type: String
     },
-    starterCode: {
+    description: {
       type: String
     },
-    question: {
+    url: {
       type: String
     },
-    answer: {
-      type: String
-    },
-    difficulty: {
+    rank: {
       type: Number
     }
 })
+console.log(Schema.DataTypes)
 
 const Challenge = mongoose.model("Challenge", challengesSchema)
 

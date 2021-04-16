@@ -4,6 +4,7 @@ const savedChallengeController = require('../controllers/savedChallengeControlle
 
 router.route('/api/challenges')
   .get(challengeController.getChallenges)
+  .post(challengeController.saveChallenges)
 
 router.route('/api/challenges/:id')
   .get(challengeController.getChallenge)
