@@ -2,10 +2,10 @@ const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
 const savedChallengesSchema = new Schema({
-    username: {
-      type: String,
-      require: true
-    },
+    // username: {
+    //   type: String,
+    //   require: true
+    // },
     challenges: [
       {
           type: Schema.Types.ObjectId,

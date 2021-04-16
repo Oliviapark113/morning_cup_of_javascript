@@ -36,6 +36,7 @@ const Challenges =() =>{
         }
 
         setChallenges(result)
+        
 
     }
 
@@ -45,30 +46,30 @@ const Challenges =() =>{
     ,[])
 
 
-    // const handleSave = id => {
-    //     const findChallenge = challenges.find(
-    //         challenge =>{
-    //            return challenge.id ===id
-    //         }
-    //     )
-    //     console.log(findChallenge)
+    const handleSave = id => {
+        const findChallenge = challenges.find(
+            challenge =>{
+               return challenge.id ===id
+            }
+        )
+        console.log(findChallenge)
 
-    // const challengeData = {
-    //      title: findChallenge.title,
-    //      question: findChallenge.question,
-    //      answer: findChallenge.answer,
-    //      difficulty: findChallenge.difficulty
-    // }
-    //  console.log(challengeData)
+    const challengeData = {
+         name: findChallenge.name,
+         rank: findChallenge.rank,
+         description: findChallenge.description,
+         url: findChallenge.url
+    }
+     console.log(challengeData)
 
-    // ChallenegsAPI.addSavedChallenge(challengeData)
-    // .then(response =>{
-    //     console.log(response.data)
-    //     history.push("/savedChallenge")
-    // })
-    // .catch(err => console.log(err))
+    ChallenegsAPI.addSavedChallenge(challengeData)
+    .then(response =>{
+        console.log(JSON.parse(response.config.data))
+        history.push("/savedChallenge")
+    })
+    .catch(err => console.log(err))
 
-    // }
+    }
 
 
     return (
@@ -77,6 +78,7 @@ const Challenges =() =>{
                 <Col>
                 <AllChallenges 
              challenges={challenges}
+             handleSave={handleSave}
             />
                 </Col>
             </Row>
