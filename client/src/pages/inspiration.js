@@ -5,6 +5,8 @@ import Row from "../components/row/row"
 import Col from "../components/col/col"
 import Arrays from '../utils/arrays'
 import RandomButton from '../components/random-button/random-button'
+import InspirationResults from "../components/inspiration-results/inspiration-results"
+// import InspirationCheckboxes from "../components/inspiration-checkboxes/inspiration-checkboxes"
 
 
 
@@ -28,7 +30,10 @@ const Inspiration = () => {
         }
     })
 
-    useEffect(() => seeding(),[])
+    useEffect(() => {
+        if (idea.npm === '')seeding()
+        else callNPM()
+    }, [idea.npm])
 
     function seeding() {
         const npmTerm = arrayRandomizer(Arrays.searchArray)
@@ -37,25 +42,27 @@ const Inspiration = () => {
         console.log(npmTerm)
         console.log(apiObject)
         console.log(frameObject)
-        setIdea({
-            npm: npmTerm,
+        setIdea(
+            {npm: npmTerm,
             api: apiObject,
-            framework: frameObject
-        })
+            framework: frameObject}
+        )
     }
     function handleClick() {
         seeding()
-        callNPM()
+        // callNPM()
     }
     function callNPM() {
-        console.log(idea)
+        // console.log(idea)
         axios.get(`https://api.npms.io/v2/search?q=${idea.npm}`)
             .then(response => {
                 const searchResults = response.data.results
-                console.log(searchResults[Math.floor(Math.random() * searchResults.length)])
+                // console.log(searchResults)
+                // filter logic maintenance/quality
+                const searchNpm = searchResults[Math.floor(Math.random() * searchResults.length)]
+                console.log(searchNpm)
             })
             .catch(err => console.log(err))
-
     }
 
     return (
@@ -68,7 +75,16 @@ const Inspiration = () => {
                 </Col>
                 <Col
                     className="col-4">
-                    Inspiration results
+                                   <InspirationResults
+
+                                   npm={idea.npm}
+                                   api={idea.api.name}
+                                   apiLink={idea.api.locationUrl}
+                                   framework={idea.framework.name}
+                                   frameworkLink={idea.framework.locationUrl}
+
+                    />
+
                 </Col>
             </Row>
         </Container>
@@ -76,3 +92,9 @@ const Inspiration = () => {
 }
 
 export default Inspiration
+
+
+
+                        // npm={ === null ? "" : `${idea.npm}`}
+                        // api={ === null ? "" : `${idea.api}`}
+                        // framework={ === null ? "" : `${idea.framework}`}
