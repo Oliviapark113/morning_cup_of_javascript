@@ -14,7 +14,7 @@ const Challenges =() =>{
 
     
     const[challenges, setChallenges] = useState([])
-    const [viewChallenges, setViewChallenges] = useState({})
+    const [viewChallenges, setViewChallenges] = useState([])
 
     const history = useHistory()
 
@@ -66,6 +66,7 @@ const Challenges =() =>{
     }
      console.log(challengeData)
     //  setViewChallenges(challengeData)
+    //  console.log(viewChallenges)
      challengesAPI.addChallengeView(challengeData)
      .then(response => console.log(JSON.parse(response.config.data)))
 
