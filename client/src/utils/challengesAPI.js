@@ -12,16 +12,16 @@ export default {
   getChallenge: function(id) {
     return axios.get("/api/challenges/" + id)
   },
-  getSavedChallenges: function() {
-    return axios.get("/api/savedchallenges")
+  getchallengeView: function() {
+    return axios.get("/api/challengeview")
   },
   addSavedChallenge: function(data) {
-    return axios.post("/api/savedchallenges", data)
+    return axios.post("/api/challengeview", data)
   },
   getSavedChallenge: function(id) {
-    return axios.get("/api/savedchallenges/" + id)
+    return axios.get("/api/challengeview/" + id)
   },
   deleteSavedChallenge: function(id) {
-    return axios.delete("/api/savedchallenges/" + id)
+    return axios.delete("/api/challengeview/" + id)
   }
 }

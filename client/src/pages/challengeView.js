@@ -9,19 +9,19 @@ import "ace-builds/src-noconflict/mode-java";
 import "ace-builds/src-noconflict/theme-github";
 
 
-const SavedChallenge = () => {
+const ChallengeView = () => {
 
 
-    const getSavedChallenges = () => {
-        ChallenegsAPI.getSavedChallenges()
-        .then(challenge => {
-          console.log(challenge)
-        })
-    }
+    // const getChallengeViews = () => {
+    //     ChallenegsAPI.getChallengeViews()
+    //     .then(challenge => {
+    //       console.log(challenge)
+    //     })
+    // }
 
-    useEffect(()=>{
-        getSavedChallenges()
-    }, [])
+    // useEffect(()=>{
+    //     getChallengeViews()
+    // }, [])
 
   const onChange = (newValue) => {
       console.log("change", newValue);
@@ -38,4 +38,4 @@ const SavedChallenge = () => {
     </Container>)
 }
 
-export default SavedChallenge
+export default ChallengeView

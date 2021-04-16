@@ -6,14 +6,14 @@ import Col from "../components/col/col"
 import ChallenegsAPI from "../utils/challengesAPI"
 import AllChallenges from "../components/allChallenges/allChallenges"
 import axios from "axios"
-import savedChallenge from "./savedChallenge"
+import ChallengeView from "./challengeView"
 
 
 const Challenges =() =>{
 
     
     const[challenges, setChallenges] = useState([])
-    const [storedChallenges, setStoredChallenges] = useState([])
+    const [viewChallenges, setViewChallenges] = useState({})
 
     const history = useHistory()
 
@@ -28,8 +28,10 @@ const Challenges =() =>{
         const result = []
         for (const id of idArray) {
             try {
+               
                 const response = await axios.get(`https://www.codewars.com/api/v1/code-challenges/${id}`)
                 result.push(response.data)
+
             }
             catch (err) {
                 console.log(err)
@@ -57,23 +59,18 @@ const Challenges =() =>{
 
     const challengeData = {
          name: findChallenge.name,
-         rank: findChallenge.rank,
+         rank: findChallenge.rank.id,
          description: findChallenge.description,
          url: findChallenge.url
     }
      console.log(challengeData)
+     setViewChallenges(challengeData)
 
-    ChallenegsAPI.addSavedChallenge(challengeData)
-    .then(response =>{
-        console.log(JSON.parse(response.config.data))
-        setStoredChallenges([...storedChallenges, JSON.parse(response.config.data)])
-        history.push("/savedChallenge")
-    })
-    .catch(err => console.log(err))
+  
 
     }
 
-    console.log(storedChallenges)
+   
 
 
     return (
@@ -84,6 +81,7 @@ const Challenges =() =>{
              challenges={challenges}
              handleSave={handleSave}
             />
+            
                 </Col>
             </Row>
         </Container>
