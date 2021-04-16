@@ -15,7 +15,7 @@ export default {
   getchallengeView: function() {
     return axios.get("/api/challengeview")
   },
-  addSavedChallenge: function(data) {
+  addChallengeView: function(data) {
     return axios.post("/api/challengeview", data)
   },
   getSavedChallenge: function(id) {

@@ -7,6 +7,7 @@ import ChallenegsAPI from "../utils/challengesAPI"
 import AllChallenges from "../components/allChallenges/allChallenges"
 import axios from "axios"
 import ChallengeView from "./challengeView"
+import challengesAPI from "../utils/challengesAPI"
 
 
 const Challenges =() =>{
@@ -64,7 +65,9 @@ const Challenges =() =>{
          url: findChallenge.url
     }
      console.log(challengeData)
-     setViewChallenges(challengeData)
+    //  setViewChallenges(challengeData)
+     challengesAPI.addChallengeView(challengeData)
+     .then(response => console.log(JSON.parse(response.config.data)))
 
   
 
