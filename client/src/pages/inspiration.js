@@ -7,7 +7,8 @@ import Arrays from '../utils/arrays'
 import RandomButton from '../components/random-button/random-button'
 import InspirationResults from "../components/inspiration-results/inspiration-results"
 import InspirationCheckboxes from "../components/inspiration-checkboxes/inspiration-checkboxes"
-
+import NotSignedIn from "../components/user-not-signed/user-not-signed"
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 
@@ -18,6 +19,7 @@ const arrayRandomizer = (array) => {
 }
 
 const Inspiration = () => {
+    const { isAuthenticated } = useAuth0();
     const [idea, setIdea] = useState({
         npm: {
             name: '',
@@ -94,8 +96,8 @@ const Inspiration = () => {
     }
 
     return (
-        <Container>
-            <Row>
+      <>
+            {isAuthenticated? <Container> <Row> 
                 <InspirationCheckboxes onChange={handleChange} />
             </Row>
             <Row>
@@ -118,8 +120,11 @@ const Inspiration = () => {
                     />
 
                 </Col>
-            </Row>
-        </Container>
+                </Row>
+                </Container>
+            : <NotSignedIn/> }
+            
+            </>
     )
 }
 
