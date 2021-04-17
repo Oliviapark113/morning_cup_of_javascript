@@ -12,7 +12,7 @@ export default {
   getChallenge: function(id) {
     return axios.get("/api/challenges/" + id)
   },
-  getchallengeView: function() {
+  getChallengeView: function() {
     return axios.get("/api/challengeview")
   },
   addChallengeView: function(data) {

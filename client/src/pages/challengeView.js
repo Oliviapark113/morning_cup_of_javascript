@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react"
 import Container from "../components/container/container"
-import ChallenegsAPI from "../utils/challengesAPI"
+import ChallengesAPI from "../utils/challengesAPI"
 import Row from "../components/row/row"
 import Col from "../components/col/col"
 
@@ -9,13 +9,17 @@ import "ace-builds/src-noconflict/mode-java";
 import "ace-builds/src-noconflict/theme-github";
 
 
-const ChallengeView = () => {
+
+const ChallengeView = ({viewChallenge}) => {
+
+  // const [viewChallenges, setViewChallenges] = useState({})
 
 
     // const getChallengeViews = () => {
-    //     ChallenegsAPI.getChallengeViews()
+    //     ChallengesAPI.getChallengeView()
     //     .then(challenge => {
     //       console.log(challenge)
+          
     //     })
     // }
 
@@ -27,15 +31,22 @@ const ChallengeView = () => {
       console.log("change", newValue);
     }
 
-  return(<Container>
-          <AceEditor
-    mode="java"
-    theme="github"
-    onChange={onChange}
-    name="UNIQUE_ID_OF_DIV"
-    editorProps={{ $blockScrolling: true }}
-  />
-    </Container>)
+  return(
+    <Container className="hide">
+      <Col className="col-md-6 challenge-list">
+            challenge
+          </Col>
+      <Col className="col-md-6 editor">
+        <AceEditor
+          mode="java"
+          theme="github"
+          onChange={onChange}
+          name="UNIQUE_ID_OF_DIV"
+          editorProps={{ $blockScrolling: true }}
+        />
+      </Col>
+    </Container>
+    )
 }
 
 export default ChallengeView

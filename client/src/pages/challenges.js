@@ -1,5 +1,5 @@
 import React ,{useState, useEffect}from "react"
-import { useHistory } from 'react-router-dom'
+// import { useHistory } from 'react-router-dom'
 import Container from "../components/container/container"
 import Row from "../components/row/row"
 import Col from "../components/col/col"
@@ -14,9 +14,8 @@ const Challenges =() =>{
 
     
     const[challenges, setChallenges] = useState([])
-    const [viewChallenges, setViewChallenges] = useState([])
+    // const [viewChallenge, setViewChallenge] = useState([])
 
-    const history = useHistory()
 
     const handleClick = () => {
 
@@ -39,7 +38,6 @@ const Challenges =() =>{
             }
 
         }
-
         setChallenges(result)   
 
     }
@@ -65,17 +63,17 @@ const Challenges =() =>{
          url: findChallenge.url
     }
      console.log(challengeData)
-    //  setViewChallenges(challengeData)
-    //  console.log(viewChallenges)
-     challengesAPI.addChallengeView(challengeData)
-     .then(response => console.log(JSON.parse(response.config.data)))
+     setChallenges(challengeData)
+    
+     console.log(challenges)
+    //  challengesAPI.addChallengeView(challengeData)
+    //  .then(response => console.log(JSON.parse(response.config.data)))
 
-  
+ }
 
-    }
 
-   
-
+    const handleView = () =>{}
+    
 
     return (
         <Container>
@@ -85,7 +83,12 @@ const Challenges =() =>{
              challenges={challenges}
              handleSave={handleSave}
             />
-            
+                </Col>
+                <Col>
+                <ChallengeView
+           
+            //  handleView={handleView}
+            />
                 </Col>
             </Row>
         </Container>
