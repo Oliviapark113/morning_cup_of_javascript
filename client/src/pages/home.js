@@ -22,7 +22,6 @@ const Home = () => {
                 setArticles(resp.data.articles)
             }).catch(err => console.log(err))
     }
-console.log(isAuthenticated)
     return (
         <Container>
             <Row>
