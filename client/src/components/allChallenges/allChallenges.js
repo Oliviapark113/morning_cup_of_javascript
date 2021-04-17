@@ -9,9 +9,9 @@ const AllChallenges= ({challenges, handleView}) =>(
         <Row className="challenge-row" >
             <Col className="col-md-12">
             {challenges.map(challenge => {
-                 let difficulty = "easy"
+                 let difficulty = "EASY"
                  if(challenge.rank.id > -8 ){
-                     difficulty = "hard"
+                     difficulty = "HARD"
                  }
                    return(
                        <Container>

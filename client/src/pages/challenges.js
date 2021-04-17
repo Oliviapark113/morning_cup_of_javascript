@@ -16,9 +16,6 @@ const Challenges =() =>{
 
     const history = useHistory();
   
-
-   
-
     const fetchCodeAPI = async () =>{
 
         const idArray = ["562926c855ca9fdc4800005b", "5547929140907378f9000039", "559ac78160f0be07c200005a", "59342039eb450e39970000a6", "55a5bfaa756cfede78000026",
@@ -37,38 +34,12 @@ const Challenges =() =>{
 
         }
         setChallenges(result)   
-
     }
 
-    useEffect(()=>{
-        fetchCodeAPI()
-        
+    useEffect(()=> {
+      fetchCodeAPI()  
     }
     ,[])
-
-
-//     const handleView = id => {
-//         const findChallenge = challenges.find(
-//             challenge =>{
-//                return challenge.id ===id
-//             }
-//         )
-//         console.log(findChallenge)
-
-//     const challengeData = {
-//          name: findChallenge.name,
-//          rank: findChallenge.rank.id,
-//          description: findChallenge.description,
-//          url: findChallenge.url
-//     }
-//      console.log(challengeData)
-//      setViewChallenge(challengeData)
-//      handleView()
-
-//  }
-
-//  console.log(viewChallenge)
-
 
     const handleView = challenge =>{
         history.push({

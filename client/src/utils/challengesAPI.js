@@ -1,27 +1,19 @@
 import axios from 'axios'
 
 export default {
-  getChallenges: function() {
-    return axios.get("/api/challenges")
+  saveAnswer: function() {
+    return axios.post("/api/challengeview")
   },
-
-  saveChallenges: function(data) {
-    return axios.post("/api/challenges")
-  },
-
-  getChallenge: function(id) {
-    return axios.get("/api/challenges/" + id)
-  },
-  getChallengeView: function() {
+  getAnswers: function(data) {
     return axios.get("/api/challengeview")
   },
-  addChallengeView: function(data) {
-    return axios.post("/api/challengeview", data)
-  },
-  getSavedChallenge: function(id) {
+  getAnswer: function(id) {
     return axios.get("/api/challengeview/" + id)
   },
-  deleteSavedChallenge: function(id) {
+  updateAnswer: function(id) {
+    return axios.put("/api/challengeview/" + id)
+  },
+  deleteAnswer: function(id) {
     return axios.delete("/api/challengeview/" + id)
   }
 }
