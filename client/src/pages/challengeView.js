@@ -1,5 +1,10 @@
 import React, {useState, useEffect} from "react"
 import Container from "../components/container/container"
+
+import {
+
+  useLocation
+} from "react-router-dom";
 import ChallengesAPI from "../utils/challengesAPI"
 import Row from "../components/row/row"
 import Col from "../components/col/col"
@@ -10,8 +15,11 @@ import "ace-builds/src-noconflict/theme-github";
 
 
 
-const ChallengeView = ({viewChallenge}) => {
+const ChallengeView = () => {
 
+  const location = useLocation();
+  console.log(location)
+     
   // const [viewChallenges, setViewChallenges] = useState({})
 
 

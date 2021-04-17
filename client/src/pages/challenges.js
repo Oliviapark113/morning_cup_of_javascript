@@ -1,5 +1,5 @@
 import React ,{useState, useEffect}from "react"
-// import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import Container from "../components/container/container"
 import Row from "../components/row/row"
 import Col from "../components/col/col"
@@ -7,19 +7,17 @@ import ChallenegsAPI from "../utils/challengesAPI"
 import AllChallenges from "../components/allChallenges/allChallenges"
 import axios from "axios"
 import ChallengeView from "./challengeView"
-import challengesAPI from "../utils/challengesAPI"
+
 
 
 const Challenges =() =>{
 
-    
     const[challenges, setChallenges] = useState([])
-    // const [viewChallenge, setViewChallenge] = useState([])
 
+    const history = useHistory();
+  
 
-    const handleClick = () => {
-
-    }
+   
 
     const fetchCodeAPI = async () =>{
 
@@ -44,36 +42,43 @@ const Challenges =() =>{
 
     useEffect(()=>{
         fetchCodeAPI()
+        
     }
     ,[])
 
 
-    const handleSave = id => {
-        const findChallenge = challenges.find(
-            challenge =>{
-               return challenge.id ===id
-            }
-        )
-        console.log(findChallenge)
+//     const handleView = id => {
+//         const findChallenge = challenges.find(
+//             challenge =>{
+//                return challenge.id ===id
+//             }
+//         )
+//         console.log(findChallenge)
 
-    const challengeData = {
-         name: findChallenge.name,
-         rank: findChallenge.rank.id,
-         description: findChallenge.description,
-         url: findChallenge.url
+//     const challengeData = {
+//          name: findChallenge.name,
+//          rank: findChallenge.rank.id,
+//          description: findChallenge.description,
+//          url: findChallenge.url
+//     }
+//      console.log(challengeData)
+//      setViewChallenge(challengeData)
+//      handleView()
+
+//  }
+
+//  console.log(viewChallenge)
+
+
+    const handleView = challenge =>{
+        history.push({
+            pathname: "/challengeview",
+            state: challenge
+        })
+        console.log(challenge)
     }
-     console.log(challengeData)
-     setChallenges(challengeData)
     
-     console.log(challenges)
-    //  challengesAPI.addChallengeView(challengeData)
-    //  .then(response => console.log(JSON.parse(response.config.data)))
 
- }
-
-
-    const handleView = () =>{}
-    
 
     return (
         <Container>
@@ -81,15 +86,10 @@ const Challenges =() =>{
                 <Col>
                 <AllChallenges 
              challenges={challenges}
-             handleSave={handleSave}
+             handleView={handleView}
             />
                 </Col>
-                <Col>
-                <ChallengeView
-           
-            //  handleView={handleView}
-            />
-                </Col>
+     
             </Row>
         </Container>
     )

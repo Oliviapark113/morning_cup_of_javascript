@@ -12,7 +12,7 @@ import Inspiration from './pages/inspiration';
 import Jokes from './pages/jokes';
 import Login from './pages/login';
 import Profile from './pages/profile'
-import ChallengeView from "./pages/challengeView"
+import ChallengeView from './pages/challengeView';
 
 
 function App() {
