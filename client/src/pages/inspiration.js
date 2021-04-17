@@ -33,6 +33,12 @@ const Inspiration = () => {
         }
     })
 
+    const [checkboxes, setCheckBoxes] = useState({
+        npm: false,
+        api: false,
+        framework: false
+    })
+
     useEffect(() => {
         if (idea.npm === '') seeding()
         else callNPM()
@@ -57,14 +63,13 @@ const Inspiration = () => {
         seeding()
     }
     function callNPM() {
-        // console.log(idea)
         axios.get(`https://api.npms.io/v2/search?q=${idea.npm.name}`)
             .then(response => {
                 const searchResults = response.data.results
                 let lucky = searchResults.filter(function (npmPackage) {
                     return npmPackage.score.final > 0.4
                 });
-                console.log(lucky)
+                // console.log(lucky)
                 const searchNpm = lucky[Math.floor(Math.random() * lucky.length)]
                 setIdea({ ...idea, npm: { ...idea.npm, locationUrl: searchNpm.package.links.npm } })
             })
@@ -72,15 +77,19 @@ const Inspiration = () => {
     }
 
 
-function handleChange(e) {
-    console.log(e)
-    e.preventDefault()
-}
+    function handleChange(e) {
+        // e.preventDefault()
+        console.log(e.target.checked)
+        const checkboxName = e.target.attributes.name.nodeValue
+        const checkboxChecked = e.target.checked
+        setCheckBoxes({ ...checkboxes, [checkboxName]: checkboxChecked }
+        )
+    }
 
     return (
         <Container>
             <Row>
-                <InspirationCheckboxes onChange={handleChange}/>
+                <InspirationCheckboxes onChange={handleChange} />
             </Row>
             <Row>
                 <Col className="col-8">
@@ -92,12 +101,12 @@ function handleChange(e) {
                     className="col-4">
                     <InspirationResults
 
-                        npm={idea.npm.name}
-                        npmLink={idea.npm.locationUrl}
-                        api={idea.api.name}
-                        apiLink={idea.api.locationUrl}
-                        framework={idea.framework.name}
-                        frameworkLink={idea.framework.locationUrl}
+                        npm={checkboxes.npm=== true? idea.npm.name : ""}
+                        npmLink={checkboxes.npm=== true? idea.npm.locationUrl : ""}
+                        api={checkboxes.api=== true? idea.api.name : ""}
+                        apiLink={checkboxes.api=== true? idea.npm.locationUrl : ""}
+                        framework={checkboxes.framework=== true? idea.framework.name :""}
+                        frameworkLink={checkboxes.framework=== true? idea.npm.locationUrl : ""}
 
                     />
 
@@ -111,7 +120,7 @@ export default Inspiration
 
 
 
-                        // npm={ === null ? "" : `${idea.npm}`}
+
                         // api={ === null ? "" : `${idea.api}`}
                         // framework={ === null ? "" : `${idea.framework}`}
 
