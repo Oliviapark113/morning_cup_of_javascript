@@ -34,9 +34,9 @@ const Inspiration = () => {
     })
 
     const [checkboxes, setCheckBoxes] = useState({
-        npm: false,
-        api: false,
-        framework: false
+        npm: true,
+        api: true,
+        framework: true
     })
 
     useEffect(() => {
@@ -63,17 +63,24 @@ const Inspiration = () => {
         seeding()
     }
     function callNPM() {
-        axios.get(`https://api.npms.io/v2/search?q=${idea.npm.name}`)
-            .then(response => {
-                const searchResults = response.data.results
-                let lucky = searchResults.filter(function (npmPackage) {
-                    return npmPackage.score.final > 0.4
-                });
-                // console.log(lucky)
-                const searchNpm = lucky[Math.floor(Math.random() * lucky.length)]
-                setIdea({ ...idea, npm: { ...idea.npm, locationUrl: searchNpm.package.links.npm } })
-            })
-            .catch(err => console.log(err))
+        if(idea.npm.name==="") {
+            return
+        } 
+        else {
+            axios.get(`https://api.npms.io/v2/search?q=${idea.npm.name}`)
+                .then(response => {
+                    const searchResults = response.data.results
+                    let lucky = searchResults.filter(function (npmPackage) {
+                        return npmPackage.score.final > 0.4
+                    });
+                    // console.log(lucky)
+                    const searchNpm = lucky[Math.floor(Math.random() * lucky.length)]
+                    console.log(searchNpm)
+                    setIdea({ ...idea, npm: { ...idea.npm, locationUrl: searchNpm.package.links.npm } })
+                })
+                .catch(err => console.log(err))
+            
+        }
     }
 
 
@@ -104,9 +111,9 @@ const Inspiration = () => {
                         npm={checkboxes.npm=== true? idea.npm.name : ""}
                         npmLink={checkboxes.npm=== true? idea.npm.locationUrl : ""}
                         api={checkboxes.api=== true? idea.api.name : ""}
-                        apiLink={checkboxes.api=== true? idea.npm.locationUrl : ""}
+                        apiLink={checkboxes.api=== true? idea.api.locationUrl : ""}
                         framework={checkboxes.framework=== true? idea.framework.name :""}
-                        frameworkLink={checkboxes.framework=== true? idea.npm.locationUrl : ""}
+                        frameworkLink={checkboxes.framework=== true? idea.framework.locationUrl : ""}
 
                     />
 
