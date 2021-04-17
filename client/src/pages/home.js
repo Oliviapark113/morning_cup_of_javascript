@@ -12,17 +12,17 @@ const Home = () => {
 
     useEffect(() => {
         getNews()
-    }, isAuthenticated);
+    },[isAuthenticated]);
 
     function getNews() {
-        const url = `https://newsapi.org/v2/top-headlines?category=technology&country=us&country=gb&${isAuthenticated?"pageSize=100&":""}apiKey=${process.env.REACT_APP_NEWS_API_KEY}`;
+        const url = `https://newsapi.org/v2/top-headlines?category=technology&country=us&country=gb&${isAuthenticated ?"pageSize=100&":""}apiKey=${process.env.REACT_APP_NEWS_API_KEY}`;
         axios.get(url)
             .then(resp => {
                 console.log(resp.data.articles)
                 setArticles(resp.data.articles)
             }).catch(err => console.log(err))
     }
-
+console.log(isAuthenticated)
     return (
         <Container>
             <Row>
