@@ -5,13 +5,14 @@ import {
   Link,
   useLocation
 } from "react-router-dom";
-import ChallengesAPI from "../utils/challengesAPI"
+
 import Row from "../components/row/row"
 import Col from "../components/col/col"
 
 import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-java";
 import "ace-builds/src-noconflict/theme-github";
+import challengesAPI from "../utils/challengesAPI";
 
 
 
@@ -19,12 +20,39 @@ const ChallengeView = () => {
 
   const [answer, setAnswer] = useState({})
 
+  useEffect(()=>{
+    getSavedAnswer()
+  }, [])
+
   const location = useLocation();
   console.log(location)
 
-  const onChange = (newValue) => {
-      console.log("answer", newValue);
 
+  const onChange = (newValue) => {
+      // console.log("answer", newValue);
+      setAnswer(newValue)
+     
+  }
+
+  console.log(answer)
+
+  const handleSave = id => {
+     const findAnswer = {
+       challengeId: id,
+       answer: answer
+     }
+     console.log(findAnswer)
+    challengesAPI.saveAnswer(findAnswer)
+    .then(response => console.log(response.data))
+    .catch(err => console.log(err))
+
+  }
+
+  const getSavedAnswer = () =>{
+ 
+    challengesAPI.getAnswers()
+    .then(response=>setAnswer(response.data))
+    .catch(err => console.log(err))
   }
 
   let difficulty = "EASY"
@@ -50,13 +78,13 @@ const ChallengeView = () => {
           mode="java"
           theme="github"
           onChange={onChange}
-          // value={newValue}
           name="ANSWER_UNIQUE_ID"
+          // onCopy={getSavedAnswer}
           editorProps={{ $blockScrolling: true }}
         />
       <Row>
         <Col className="col-md-3 button-container">
-          <button type="button" className="btn btn-primary" onClick={null}>SAVE</button>
+          <button type="button" className="btn btn-primary" onClick={()=>{handleSave(location.state.id)}}>SAVE</button>
           <button type="button" className="btn btn-success">UPDATE</button>
           <button type="button" className="btn btn-danger">DELETE</button>
         </Col>
