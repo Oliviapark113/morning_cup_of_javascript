@@ -2,6 +2,7 @@ import React from 'react'
 import "./style.css"
 
 
+
 const InspirationCheckboxes = (props) => {
 
   return (
@@ -14,6 +15,7 @@ const InspirationCheckboxes = (props) => {
   
     <input type="checkbox" defaultChecked="checked" className="btn-check" name="framework" id="btncheck3" {...props}/>
     <label className="btn btn-outline-primary" htmlFor="btncheck3">framework</label>
+
   </div>
   )
 }

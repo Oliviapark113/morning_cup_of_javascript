@@ -5,12 +5,11 @@ import "./style.css"
 
 const InspirationResults = ({ npm, api, framework, apiLink, frameworkLink,npmLink }) => {
 
+
   return (
     <div className="card">
       <div className="card-body">
         <h5 className="card-title">Inspiration List</h5>
-
-
         <p className="card-text">npm: {npm}
         <a target="_blank" href={npmLink} rel="noreferrer" >Link</a></p>
         <p className="card-text">api: {api}
