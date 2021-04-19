@@ -43,6 +43,17 @@ import {
       })
      
   }
+  const handleDelete = id => {
+    const findDeleteList = saveList.find(deleteList => {
+      return deleteList._id === id
+    })
+    ChallengesAPI.deleteAnswer(id)
+      .then(response => {
+        console.log(response)
+        getSavedAnswer()
+      })
+      .catch(err => console.log(err))
+  }
 
     return(
        <Container>
@@ -57,8 +68,8 @@ import {
          ( 
          <>
          <Col className="col-md-8">
-             <a href={list.url}>{list.name}</a>
-             <button>DELETE</button>
+             <a href={list.url} target="_blank" rel="noreferrer" >{list.name}</a>
+             <button onClick={()=>handleDelete(list._id)}>DELETE</button>
            </Col>
            <Col className="col-md-4">
              <button onClick={()=>handleView(list._id)}>CHALLENGE</button>
