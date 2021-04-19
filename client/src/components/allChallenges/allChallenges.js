@@ -13,6 +13,7 @@ const AllChallenges= ({challenges, handleView}) =>(
                  if(challenge.rank.id > -8 ){
                      difficulty = "HARD"
                  }
+               
                    return(
                        <Container>
                            <Row className="challenge-row" key={challenge.id}>

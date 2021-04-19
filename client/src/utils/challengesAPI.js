@@ -10,8 +10,8 @@ export default {
   getAnswer: function( id) {
     return axios.get("/api/challengeview/" + id)
   },
-  updateAnswer: function(id) {
-    return axios.put("/api/challengeview/" + id)
+  updateAnswer: function(id, data) {
+    return axios.put("/api/challengeview/"+id , data )
   },
   deleteAnswer: function(id) {
     return axios.delete("/api/challengeview/" + id)

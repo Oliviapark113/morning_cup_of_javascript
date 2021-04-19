@@ -2,10 +2,28 @@ const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
 const answerSchema = new Schema({
-    answer: {
+
+    name:{
+      type: String
+    }, 
+
+    rank:{
+      type: Number
+    },
+
+    challengeId: {
       type: String
     },
-    challengeId: {
+
+    description:{
+      type: String
+    },
+
+    url:{
+      type: String
+    },
+    
+    answer: {
       type: String
     },
     userId: {

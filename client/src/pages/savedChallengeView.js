@@ -17,10 +17,10 @@ import ChallengesAPI from "../utils/challengesAPI";
 
 
 
-const ChallengeView = () => {
+const SavedChallengeView = () => {
 
-  // const [answer, setAnswer] = useState({})
-  const [saveAnswer, setSaveAnswer] = useState([])
+ 
+  const [updateAnswer, setUpdateAnswer] = useState([])
 
   const history = useHistory()
 
@@ -30,30 +30,30 @@ const ChallengeView = () => {
 
   const onChange = (newValue) => {
       // console.log("answer", newValue);
-      setSaveAnswer(newValue)
+      setUpdateAnswer(newValue)
      
   }
 
-  console.log(saveAnswer)
+  console.log(updateAnswer)
 
-  const handleSave = id => {
-     const findAnswer = {
+  const handleUpdate = id => {
+     const updateAnswer = {
        name:location.state.name ,
        url:location.state.url,
        description:location.state.description,
        rank: location.state.rank.id,
        challengeId: id,
-       answer : saveAnswer
+       answer : updateAnswer
      }
-     console.log(findAnswer)
-    ChallengesAPI.saveAnswer(findAnswer)
-    .then(response => { setSaveAnswer(response.data)
+     console.log(updateAnswer)
+    ChallengesAPI.updateAnswer(updateAnswer.challengeId, updateAnswer)
+    .then(response => { console.log(response.data)
     history.push("./savedanswerlist")
   })
     .catch(err => console.log(err))
 
   }
-  console.log(saveAnswer)
+  console.log(updateAnswer)
 
 
   let difficulty = "EASY"
@@ -85,9 +85,7 @@ const ChallengeView = () => {
         />
       <Row>
         <Col className="col-md-3 button-container">
-          <button type="button" className="btn btn-primary" onClick={()=>{handleSave(location.state.id)}}>SAVE</button>
-          {/* <button type="button" className="btn btn-success">UPDATE</button>
-          <button type="button" className="btn btn-danger">DELETE</button> */}
+          <button type="button" className="btn btn-primary" onClick={()=>{handleUpdate(location.state.id)}}>UPDATE</button>
         </Col>
       </Row>
       </Col>
@@ -95,4 +93,4 @@ const ChallengeView = () => {
     )
 }
 
-export default ChallengeView
+export default SavedChallengeView
