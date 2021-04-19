@@ -23,9 +23,11 @@ module.exports = {
   },
   updateAnswer: function(req, res) {
     const {id} = req.params
-    db.Answer.findByIdAndUpdate(id, req.body, {new: true})
+    Answer.findByIdAndUpdate(id, req.body, {new: true})
     .then(answerData => {res.json(answerData)})
-    .catch(err =>res.status(500).send())
+    .catch(err =>{
+      console.log(err)
+      res.status(500).send()})
   },
   deleteAnswer: function(req, res) {
     const {id } = req.params

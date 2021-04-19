@@ -37,7 +37,8 @@ const SavedChallengeView = () => {
   console.log(updateAnswer)
 
   const handleUpdate = id => {
-     const updateAnswer = {
+
+     const finalAnswer = {
        name:location.state.name ,
        url:location.state.url,
        description:location.state.description,
@@ -45,10 +46,10 @@ const SavedChallengeView = () => {
        challengeId: id,
        answer : updateAnswer
      }
-     console.log(updateAnswer)
-    ChallengesAPI.updateAnswer(updateAnswer.challengeId, updateAnswer)
-    .then(response => { console.log(response.data)
-    history.push("./savedanswerlist")
+     console.log(finalAnswer)
+    ChallengesAPI.updateAnswer(finalAnswer.challengeId, finalAnswer)
+    .then(response => {setUpdateAnswer(response.data)
+    // history.push("./savedanswerlist")
   })
     .catch(err => console.log(err))
 
@@ -86,13 +87,13 @@ const SavedChallengeView = () => {
         <div className="card" style={{width: "18rem;"}}>
           <ul className="list-group list-group-flush">
             <li className="list-group-item">SAVED ANSWER</li>
-      <li className="list-group-item">{location.state.answer}</li>
-            {/* <li className="list-group-item">A third item</li> */}
+            <li className="list-group-item save-answer">{location.state.answer}</li>
+            <li className="list-group-item update-answer">{updateAnswer.answer}</li>
           </ul>
         </div>
       <Row>
         <Col classNameName="col-md-3 button-container">
-          <button type="button" classNameName="btn btn-primary" onClick={()=>{handleUpdate(location.state.id)}}>UPDATE</button>
+          <button type="button" classNameName="btn btn-primary" onClick={()=>{handleUpdate(location.state._id)}}>UPDATE SAVED ANSWER</button>
         </Col>
       </Row>
       </Col>
