@@ -63,18 +63,18 @@ const SavedChallengeView = () => {
 
   return(
     <Container>
-      <Col className="col-md-6 challenge-list">
-        <div className="card" >
-          <div className="card-body">
-            <h5 className="card-title">{location.state.name}</h5>
-            <h6 className="card-subtitle mb-2 text-muted">{difficulty}</h6>
-            <p className="card-text">{location.state.description}</p>
-            <Link to="/challenges" className="card-link">Back</Link>
-            <a href={location.state.url} target="_blank" rel="noreferrer" className="card-link">CodeWars Link</a>
+      <Col classNameName="col-md-6 challenge-list">
+        <div classNameName="card" >
+          <div classNameName="card-body">
+            <h5 classNameName="card-title">{location.state.name}</h5>
+            <h6 classNameName="card-subtitle mb-2 text-muted">{difficulty}</h6>
+            <p classNameName="card-text">{location.state.description}</p>
+            <Link to="/challenges" classNameName="card-link">Back</Link>
+            <a href={location.state.url} target="_blank" rel="noreferrer" classNameName="card-link">CodeWars Link</a>
           </div>
         </div>
       </Col>
-      <Col className="col-md-6 editor">
+      <Col classNameName="col-md-6 editor">
         <AceEditor
           mode="java"
           theme="github"
@@ -83,9 +83,16 @@ const SavedChallengeView = () => {
           // onCopy={getSavedAnswer}
           editorProps={{ $blockScrolling: true }}
         />
+        <div className="card" style={{width: "18rem;"}}>
+          <ul className="list-group list-group-flush">
+            <li className="list-group-item">SAVED ANSWER</li>
+      <li className="list-group-item">{location.state.answer}</li>
+            {/* <li className="list-group-item">A third item</li> */}
+          </ul>
+        </div>
       <Row>
-        <Col className="col-md-3 button-container">
-          <button type="button" className="btn btn-primary" onClick={()=>{handleUpdate(location.state.id)}}>UPDATE</button>
+        <Col classNameName="col-md-3 button-container">
+          <button type="button" classNameName="btn btn-primary" onClick={()=>{handleUpdate(location.state.id)}}>UPDATE</button>
         </Col>
       </Row>
       </Col>
