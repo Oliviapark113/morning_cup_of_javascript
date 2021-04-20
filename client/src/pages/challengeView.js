@@ -9,10 +9,9 @@ import {
 
 import Row from "../components/row/row"
 import Col from "../components/col/col"
-
 import AceEditor from "react-ace";
-import "ace-builds/src-noconflict/mode-java";
-import "ace-builds/src-noconflict/theme-github";
+import "ace-builds/src-noconflict/mode-javascript";
+import "ace-builds/src-noconflict/theme-dracula";
 import ChallengesAPI from "../utils/challengesAPI";
 import { useAuth0 } from "@auth0/auth0-react";
 import { BsFillHeartFill, BsFillArchiveFill } from "react-icons/bs";
@@ -90,8 +89,8 @@ const ChallengeView = () => {
       </Col>
       <Col className="col-md-6 editor">
         <AceEditor
-          mode="java"
-          theme="github"
+          mode="javascript"
+          theme="dracula"
           onChange={onChange}
           name="ANSWER_UNIQUE_ID"
           editorProps={{ $blockScrolling: true }}
