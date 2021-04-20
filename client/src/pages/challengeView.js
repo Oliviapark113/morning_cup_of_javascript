@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react"
+import React, {useState, useReducer} from "react"
 import Container from "../components/container/container"
 
 import {
@@ -14,13 +14,21 @@ import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-java";
 import "ace-builds/src-noconflict/theme-github";
 import ChallengesAPI from "../utils/challengesAPI";
+import { BsFillHeartFill } from "react-icons/bs";
 
 
 
 const ChallengeView = () => {
 
-  // const [answer, setAnswer] = useState({})
   const [saveAnswer, setSaveAnswer] = useState([])
+
+  const [count , dispatch] = useReducer((state, action)=>{
+    console.log("action", action)
+    console.log("state", state)
+    if(action === "add"){
+      return state +1 ;
+    }
+  },0)
 
   const history = useHistory()
 
@@ -29,7 +37,7 @@ const ChallengeView = () => {
 
 
   const onChange = (newValue) => {
-      // console.log("answer", newValue);
+ 
       setSaveAnswer(newValue)
      
   }
@@ -73,6 +81,7 @@ const ChallengeView = () => {
             <p className="card-text">{location.state.description}</p>
             <Link to="/challenges" className="card-link">Back</Link>
             <a href={location.state.url} target="_blank" rel="noreferrer" className="card-link">CodeWars Link</a>
+            <button className = "btn btn-danger" onClick={()=>dispatch("add")}> <BsFillHeartFill /> </button> {count} Likes
           </div>
         </div>
       </Col>
@@ -87,8 +96,6 @@ const ChallengeView = () => {
       <Row>
         <Col className="col-md-3 button-container">
           <button type="button" className="btn btn-primary" onClick={()=>{handleSave(location.state.id)}}>SAVE</button>
-          {/* <button type="button" className="btn btn-success">UPDATE</button>
-          <button type="button" className="btn btn-danger">DELETE</button> */}
         </Col>
       </Row>
       </Col>
