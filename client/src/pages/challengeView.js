@@ -47,8 +47,10 @@ const ChallengeView = () => {
      }
      console.log(findAnswer)
     ChallengesAPI.saveAnswer(findAnswer)
-    .then(response => { setSaveAnswer(response.data)
-    history.push("./savedanswerlist")
+    .then(response => { 
+      console.log(response)
+      setSaveAnswer(response.data)
+      history.push("./savedanswerlist")
   })
     .catch(err => console.log(err))
 
@@ -80,7 +82,6 @@ const ChallengeView = () => {
           theme="github"
           onChange={onChange}
           name="ANSWER_UNIQUE_ID"
-          // onCopy={getSavedAnswer}
           editorProps={{ $blockScrolling: true }}
         />
       <Row>

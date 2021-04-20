@@ -13,7 +13,9 @@ module.exports = {
   getAnswers: function(req, res) {
     Answer.find({})
     .then(data => res.json(data))
-    .catch(err => res.status(500).send())       
+    .catch(err => {
+      console.log(err)
+      res.status(500).send()})       
   },
   getAnswer: function(req, res) {
     const {id } = req.params
