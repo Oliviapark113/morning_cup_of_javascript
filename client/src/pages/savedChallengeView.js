@@ -29,7 +29,6 @@ const SavedChallengeView = () => {
 
 
   const onChange = (newValue) => {
-      // console.log("answer", newValue);
       setUpdateAnswer(newValue)
      
   }
