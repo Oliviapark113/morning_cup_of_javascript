@@ -6,10 +6,10 @@ import Col from "../components/col/col"
 const Login =() =>(
     
     <Container>
-    <Row>
-    <Col>Login</Col>
-    </Row>
-</Container>
+        <Row>
+            <Col>Login</Col>
+        </Row>
+    </Container>
 )
 
 export default Login
