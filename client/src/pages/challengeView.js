@@ -12,6 +12,11 @@ import Col from "../components/col/col"
 import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/theme-dracula";
+import "ace-builds/src-noconflict/theme-dawn";
+import "ace-builds/src-noconflict/theme-chaos";
+import "ace-builds/src-noconflict/theme-cobalt";
+import "ace-builds/src-noconflict/theme-github";
+import "ace-builds/src-noconflict/theme-dreamweaver";
 import ChallengesAPI from "../utils/challengesAPI";
 import { useAuth0 } from "@auth0/auth0-react";
 import { BsFillHeartFill, BsFillArchiveFill } from "react-icons/bs";
@@ -30,6 +35,8 @@ const ChallengeView = () => {
     }
   },0)
 
+  const [editorTheme , setEditorTheme]=useState("dracula")
+
   const history = useHistory()
 
   const location = useLocation();
@@ -42,7 +49,10 @@ const ChallengeView = () => {
      
   }
 
-  console.log(saveAnswer)
+  const handleEditorTheme = e => {
+    setEditorTheme(e.target.value)
+  }
+
 
   const handleSave = id => {
      const findAnswer = {
@@ -55,7 +65,6 @@ const ChallengeView = () => {
        userId: user.sub
       
      }
-     console.log(findAnswer)
     ChallengesAPI.saveAnswer(findAnswer)
     .then(response => { 
       console.log(response)
@@ -86,11 +95,23 @@ const ChallengeView = () => {
             <button className = "btn btn-danger" onClick={()=>dispatch("add")}> <BsFillHeartFill /> </button> {count} Likes
           </div>
         </div>
+          <label for="theme">Choose a theme:</label>
+          <select name="theme" id="theme" onChange= {handleEditorTheme}>
+            <option value="dracula">dracula</option>
+            <option value="dawn">dawn</option>
+            <option value="chaos">chaos</option>
+            <option value="cobalt">cobalt</option>
+            <option value="github">github</option>
+            <option value="dreamweaver">dreamweaver</option>
+          </select>
+          <br></br>
+           
+
       </Col>
       <Col className="col-md-6 editor">
         <AceEditor
           mode="javascript"
-          theme="dracula"
+          theme={editorTheme}
           onChange={onChange}
           name="ANSWER_UNIQUE_ID"
           editorProps={{ $blockScrolling: true }}
