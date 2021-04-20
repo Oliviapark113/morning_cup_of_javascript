@@ -3,7 +3,8 @@ import Container from "../components/container/container"
 import Row from "../components/row/row"
 import Col from "../components/col/col"
 
-const Login = () => (
+const Login =() =>(
+    
     <Container>
         <Row>
             <Col>Login</Col>

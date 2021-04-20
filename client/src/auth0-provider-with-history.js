@@ -25,7 +25,6 @@ const Auth0ProviderWithHistory = ({ children }) => {
     )
 
 
-
 }
 
 export default Auth0ProviderWithHistory;
