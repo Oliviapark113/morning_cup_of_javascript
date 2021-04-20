@@ -14,7 +14,8 @@ import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-java";
 import "ace-builds/src-noconflict/theme-github";
 import ChallengesAPI from "../utils/challengesAPI";
-import { BsFillHeartFill } from "react-icons/bs";
+import { useAuth0 } from "@auth0/auth0-react";
+import { BsFillHeartFill, BsFillArchiveFill } from "react-icons/bs";
 
 
 
@@ -35,7 +36,7 @@ const ChallengeView = () => {
   const location = useLocation();
   console.log(location)
 
-
+  const { user } = useAuth0();
   const onChange = (newValue) => {
  
       setSaveAnswer(newValue)
@@ -51,7 +52,9 @@ const ChallengeView = () => {
        description:location.state.description,
        rank: location.state.rank.id,
        challengeId: id,
-       answer : saveAnswer
+       answer : saveAnswer,
+       userId: user.sub
+      
      }
      console.log(findAnswer)
     ChallengesAPI.saveAnswer(findAnswer)
@@ -95,7 +98,7 @@ const ChallengeView = () => {
         />
       <Row>
         <Col className="col-md-3 button-container">
-          <button type="button" className="btn btn-primary" onClick={()=>{handleSave(location.state.id)}}>SAVE</button>
+          <button type="button" className="btn btn-primary" onClick={()=>{handleSave(location.state.id)}}><BsFillArchiveFill></BsFillArchiveFill> SAVE </button>
         </Col>
       </Row>
       </Col>
