@@ -79,12 +79,8 @@
     flex-direction: column;
   }
   .right-nav {
-    /* display: flex;
-    flex-direction: column;
-    align-items: center;
-    list-style: none; */
     display: none;
-    /* padding:10px; */
+   
   }
 
   .hamburger-btn {
