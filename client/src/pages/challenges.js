@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 import Container from "../components/container/container"
 import Row from "../components/row/row"
 import Col from "../components/col/col"
-import ChallenegsAPI from "../utils/challengesAPI"
+import ChallengesAPI from "../utils/challengesAPI"
 import AllChallenges from "../components/allChallenges/allChallenges"
 import axios from "axios"
 import ChallengeView from "./challengeView"
