@@ -26,11 +26,8 @@ const Navbar = () => {
 
 	return (
 		<nav className="navbar navbar-expand-lg background">
+			<Link to="/" className="navbar-brand text-styles" href="#">Home</Link>
 			<div className="container-fluid nav-wrapper">
-				<Link to="/" className="navbar-brand text-styles" href="#">Home</Link>
-				{/* <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button> */}
 				<button className="hamburger-btn" onClick={handleHamburger} >
 					<BsJustify className="hamburger-styles" />
 				</button>
@@ -43,17 +40,17 @@ const Navbar = () => {
 							<Link to="/challenges" className="nav-link text-styles nav-list" aria-current="page" href="#">Challenges</Link>
 						</li>
 						<li className="nav-item">
-							<Link to="/savedanswerlist" className="nav-link text-styles nav-list" aria-current="page" href="#"><BsFillArchiveFill /> Saved</Link>
+							<Link to="/savedanswerlist" className="nav-link text-styles nav-list" aria-current="page" href="#">Saved</Link>
 						</li>
 						{/* <li className="nav-item">
-                            <Link to="/jokes" className="nav-link" aria-current="page" href="#">Jokes</Link>
-                        </li> */}
+								<Link to="/jokes" className="nav-link" aria-current="page" href="#">Jokes</Link>
+						</li> */}
 					</ul>
 				</div>
 				<div className="container-fluid right-nav-container">
 					<ul className="right-nav">
 						<li className="nav-item">
-						{isAuthenticated?<Link to="/profile" className="nav-link text-styles nav-list" aria-current="page" href="#">Profile</Link>:<SignupButton className="nav-list"/>}
+						{isAuthenticated?<Link to="/profile" className="nav-link text-styles nav-list" aria-current="page" href="#">Profile</Link>:<SignupButton className="text-styles nav-list"/>}
 						</li>
 						<li className="nav-item text-styles nav-list">
 						{isAuthenticated? <LogoutButton className="nav-list"/> :<LoginButton className="nav-list"/>}
