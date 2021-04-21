@@ -12,6 +12,8 @@ module.exports = {
     },
     getComments: function(req, res) {
         db.Comment.find({})
+        .sort({date: -1})
+        .limit(20)
         .then(data => res.json(data))
         .catch(err => res.status(500).send())
 
