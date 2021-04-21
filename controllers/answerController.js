@@ -1,17 +1,15 @@
-const Answer = require('../models/answer')
+const db = require('../models')
 
 module.exports = {
   saveAnswer: function(req, res) {
-    Answer.create(req.body)
+    db.Answer.create(req.body)
     .then(data => res.json(data))
     .catch(err => {
       console.log(err)
       res.status(500).send()})   
-    
-    
   },
   getAnswers: function(req, res) {
-    Answer.find({})
+    db.Answer.find({})
     .then(data => res.json(data))
     .catch(err => {
       console.log(err)
@@ -19,13 +17,13 @@ module.exports = {
   },
   getAnswer: function(req, res) {
     const {id } = req.params
-    Answer.findById(id)
+    db.Answer.findById(id)
     .then(data => res.json(data))
     .catch(err => res.status(500).send())       
   },
   updateAnswer: function(req, res) {
     const {id} = req.params
-    Answer.findByIdAndUpdate(id, req.body, {new: true})
+    db.Answer.findByIdAndUpdate(id, req.body, {new: true})
     .then(answerData => {res.json(answerData)})
     .catch(err =>{
       console.log(err)
@@ -33,7 +31,7 @@ module.exports = {
   },
   deleteAnswer: function(req, res) {
     const {id } = req.params
-    Answer.findByIdAndDelete(id)
+    db.Answer.findByIdAndDelete(id)
     .then(data => res.json(data))
     .catch(err => res.status(500).send())
   }

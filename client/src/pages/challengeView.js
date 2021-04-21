@@ -74,7 +74,7 @@ const ChallengeView = () => {
     .catch(err => console.log(err))
 
   }
-  console.log(saveAnswer)
+  // console.log(saveAnswer)
 
 
   let difficulty = "EASY"
