@@ -2,8 +2,9 @@ const db = require('../models')
 
 module.exports = {
     saveComment: function(req, res) {
+        console.log(req.body)
         db.Comment.create(req.body)
-        .then(date => res.json(data))
+        .then(data => res.json(data))
         .catch(err => {
             console.log(err)
             res.status(500).send()

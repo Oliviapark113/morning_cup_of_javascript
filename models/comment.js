@@ -14,6 +14,10 @@ const commentSchema = new Schema({
         type: Date,
         default: Date.now()
     },
+    userName: {
+        type: String,
+        require: true
+    }
 })
 
 const Comment = mongoose.model("Comment", commentSchema)
