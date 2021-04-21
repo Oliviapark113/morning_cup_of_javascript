@@ -18,9 +18,9 @@ import ChallengesAPI from "../utils/challengesAPI";
 
 
 const SavedChallengeView = () => {
-
+ 
   const location = useLocation();
-  const [updateAnswer, setUpdateAnswer] = useState(location.state.answer)
+  const [updateAnswer, setUpdateAnswer] = useState(location.state.answer);
 
   const history = useHistory()
 
@@ -48,7 +48,7 @@ const SavedChallengeView = () => {
      console.log(finalAnswer)
     ChallengesAPI.updateAnswer(finalAnswer.challengeId, finalAnswer)
     .then(response => {setUpdateAnswer(response.data.answer)
-    // history.push("./savedanswerlist")
+  
   })
     .catch(err => console.log(err))
 
