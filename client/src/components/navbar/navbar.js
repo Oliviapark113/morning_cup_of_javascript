@@ -19,7 +19,9 @@ const Navbar = () => {
 	const handleHamburger = () => {
 		// const toggleBtn = document.querySelector('.hamburger-btn')
 		const navList = document.querySelector('.navbar-items')
+		const rightNavList = document.querySelector('.right-nav')
 		navList.classList.toggle('active')
+		rightNavList.classList.toggle('active')
 	}
 
 	return (
@@ -48,7 +50,7 @@ const Navbar = () => {
                         </li> */}
 					</ul>
 				</div>
-				<div className="right-nav-container">
+				<div className="container-fluid right-nav-container">
 					<ul className="right-nav">
 						<li className="nav-item">
 						{isAuthenticated?<Link to="/profile" className="nav-link text-styles nav-list" aria-current="page" href="#">Profile</Link>:<SignupButton className="nav-list"/>}

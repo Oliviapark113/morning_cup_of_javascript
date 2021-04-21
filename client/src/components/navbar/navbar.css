@@ -13,7 +13,7 @@
 .right-nav {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  justify-content: flex-end;
   list-style: none;
 }
 .background {
@@ -79,11 +79,12 @@
     flex-direction: column;
   }
   .right-nav {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     align-items: center;
-    list-style: none;
-    padding:10px;
+    list-style: none; */
+    display: none;
+    /* padding:10px; */
   
   }
   .hamburger-btn {
@@ -95,7 +96,11 @@
   .navbar-items.active {
     display: flex;
   }
-  .right-nav {
-    display: none;
+  .right-nav.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+
   } 
 }
