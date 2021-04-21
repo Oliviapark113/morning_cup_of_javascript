@@ -5,6 +5,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import Header from './components/header/header'
 import Navbar from './components/navbar/navbar';
 import Challenges from './pages/challenges';
 import Home from './pages/home';
@@ -20,6 +21,7 @@ import SavedChallengeView from './pages/savedChallengeView';
 function App() {
   return (
     <Router>
+    <Header />
     <Navbar />
     <Switch>
       <Route path="/challenges">
