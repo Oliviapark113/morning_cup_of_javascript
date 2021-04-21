@@ -33,7 +33,8 @@ const Comments = () => {
         }
         // console.log(dataObject)
         API.saveComment(dataObject)
-            .then(resp => console.log(resp))
+            .then(resp => {
+                console.log(resp)})
             .catch(err => console.log(err))
     }
 
