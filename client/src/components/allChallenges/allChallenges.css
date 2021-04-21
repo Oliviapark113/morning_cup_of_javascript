@@ -1,0 +1,64 @@
+body {
+  color: #2f2f2f;
+  font-size: 1.2rem;
+}
+
+.container {
+  padding: 0px;
+  margin: auto, 0px;
+}
+
+a {
+  color: #2f2f2f;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #f39c38;
+}
+
+.challenge-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  padding: 20px;
+  margin: 20px;
+  border: solid #2f2f2f 2px;
+  border-radius: 5px;
+  box-shadow: 7px 7px 7px #8d8d8d;
+  font-family: 'Limelight', cursive;
+  font-size: 1.1rem;
+}
+
+.challenge-item {
+  text-align: center;
+}
+
+.name {
+  font-family: 'Limelight', cursive;
+}
+
+.rank {
+  background-color: rgba(243, 156, 56, 0.7);
+  border-radius: 5px;
+  width: 65%;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.rank-text {
+  color: #2f2f2f;
+}
+
+.link-btn {
+  color: #2f2f2f;
+  background-color: #f9f7f1;
+  box-shadow: 7px 7px 7px #8d8d8d;
+  border-radius: 5px;
+  border-style: none;
+}
+
+.link-btn:hover {
+  color: #f39c38;
+}

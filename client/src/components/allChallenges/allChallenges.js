@@ -2,41 +2,47 @@ import React from "react"
 import Container from "../container/container"
 import Row from "../row/row"
 import Col from "../col/col"
-import {Link} from "react-router-dom"
 
-const AllChallenges= ({challenges, handleView}) =>(
-    <Container>
-        <Row className="challenge-row" >
-            <Col className="col-md-12">
-            {challenges.map(challenge => {
-                 let difficulty = "EASY"
-                 if(challenge.rank.id > -8 ){
-                     difficulty = "HARD"
-                 }
-               
-                   return(
-                       <Container>
-                           <Row className="challenge-row" key={challenge.id}>
-                               <Col className="col-md-8 challenge-list">
-                                   <p className="name">{challenge.name}</p>
-                                   <p className="rank">{difficulty}</p>
-                            
-                               </Col>
-                               <Col className="col-md-4 page-btn">
-                                   <button className="view-detail"><a className="rank" href={challenge.url}>VIEW</a></button>
-                                   <button className="view-challenge" onClick={() => handleView(challenge)}>CHALLENGE</button>
-                               </Col>
-                        </Row>
-                     </Container>
+import './allChallenges.css'
 
-                   )
+const AllChallenges = ({ challenges, handleView }) => {
+	
+	
 
-            }
-        )}
-            </Col>
-        </Row>
-        
-    </Container>
-)
+	
+
+	return (
+		// <Container>
+				<Col className="col-md-12">
+					{challenges.map(challenge => {
+						let difficulty = "EASY"
+						if (challenge.rank.id > -8) {
+							difficulty = "HARD"
+						}
+						return (
+							<Container>
+								<Row className="challenge-row" key={challenge.id}>
+									<Col className="col-md-2 challenge-item">
+										<p className="name">{challenge.name}</p>
+									</Col>
+									<Col className="col-md-2 challenge-item">
+										<p className="rank"><span className="rank-text">{difficulty}</span></p>
+									</Col>
+									<Col className="col-md-2 challenge-item">
+										<button className="view-challenge link-btn" onClick={() => handleView(challenge)}>Challenge</button>
+									</Col>
+									<Col className="col-md-2 challenge-item">
+										<button className="view-detail link-btn"><a className="url" href={challenge.url}>Link</a></button>
+									</Col>
+								</Row>
+							</Container>
+
+						)
+					}
+					)}
+				</Col>
+		// </Container>
+	)
+}
 
 export default AllChallenges
