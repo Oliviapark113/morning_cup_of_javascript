@@ -9,7 +9,7 @@ import InspirationResults from "../components/inspiration-results/inspiration-re
 import InspirationCheckboxes from "../components/inspiration-checkboxes/inspiration-checkboxes"
 import NotSignedIn from "../components/user-not-signed/user-not-signed"
 import { useAuth0 } from "@auth0/auth0-react";
-
+import Comments from "../components/inspiration-comments/inspiration-comments"
 
 
 
@@ -121,6 +121,9 @@ const Inspiration = () => {
 
                 </Col>
                 </Row>
+                <Row>
+                    <Comments/>
+                </Row>
                 </Container>
             : <NotSignedIn/> }
             
@@ -129,12 +132,3 @@ const Inspiration = () => {
 }
 
 export default Inspiration
-
-
-
-
-                        // api={ === null ? "" : `${idea.api}`}
-                        // framework={ === null ? "" : `${idea.framework}`}
-
-// delete list
- // wisp, faries
