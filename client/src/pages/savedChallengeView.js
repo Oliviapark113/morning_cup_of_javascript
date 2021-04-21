@@ -11,25 +11,24 @@ import Row from "../components/row/row"
 import Col from "../components/col/col"
 
 import AceEditor from "react-ace";
-import "ace-builds/src-noconflict/mode-java";
-import "ace-builds/src-noconflict/theme-github";
+import "ace-builds/src-noconflict/mode-javascript";
+import "ace-builds/src-noconflict/theme-dracula";
 import ChallengesAPI from "../utils/challengesAPI";
 
 
 
 const SavedChallengeView = () => {
-
  
-  const [updateAnswer, setUpdateAnswer] = useState([])
+  const location = useLocation();
+  const [updateAnswer, setUpdateAnswer] = useState(location.state.answer);
 
   const history = useHistory()
 
-  const location = useLocation();
+ 
   console.log(location)
 
 
   const onChange = (newValue) => {
-      // console.log("answer", newValue);
       setUpdateAnswer(newValue)
      
   }
@@ -48,8 +47,8 @@ const SavedChallengeView = () => {
      }
      console.log(finalAnswer)
     ChallengesAPI.updateAnswer(finalAnswer.challengeId, finalAnswer)
-    .then(response => {setUpdateAnswer(response.data)
-    // history.push("./savedanswerlist")
+    .then(response => {setUpdateAnswer(response.data.answer)
+  
   })
     .catch(err => console.log(err))
 
@@ -77,18 +76,18 @@ const SavedChallengeView = () => {
       </Col>
       <Col classNameName="col-md-6 editor">
         <AceEditor
-          mode="java"
-          theme="github"
+          mode="javascript"
+          theme="dracula"
           onChange={onChange}
           name="ANSWER_UNIQUE_ID"
-          // onCopy={getSavedAnswer}
+          defaultValue ={updateAnswer}
           editorProps={{ $blockScrolling: true }}
         />
         <div className="card" style={{width: "18rem;"}}>
           <ul className="list-group list-group-flush">
             <li className="list-group-item">SAVED ANSWER</li>
             <li className="list-group-item save-answer">{location.state.answer}</li>
-            <li className="list-group-item update-answer">{updateAnswer.answer}</li>
+            <li className="list-group-item update-answer">{updateAnswer}</li>
           </ul>
         </div>
       <Row>

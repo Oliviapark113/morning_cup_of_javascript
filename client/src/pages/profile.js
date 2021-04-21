@@ -2,7 +2,10 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 const Profile = () => {
+  // "auth0|60763cae129d1b0068faa6a8"
+  //auth0|607f1a3c8bbc38006978ae96
   const { user } = useAuth0();
+  console.log(user)
   const { name, picture, email } = user;
   return (
     <div>

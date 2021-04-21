@@ -1,0 +1,8 @@
+.signup-styles {
+  color: #f9f7f1;
+  font-family: 'Limelight', cursive;
+}
+
+.signup-styles:hover {
+  color: #f39c38;
+}
