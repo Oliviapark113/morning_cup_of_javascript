@@ -17,31 +17,26 @@ const CommentsCard = (props) => {
 
     const pageRefresh = () => window.location.reload(true)
     
-    function handleEdit (e) {
-        e.preventDefault()
-        // console.log(e)
-        const target = document.getElementById(props._id)
-        // console.log(target)
-        target.removeAttribute("disabled")
-    }
+//  console.log(props)
     return (
 <>
 <Col className="col-2">
             <div className="card">
                 <div className="card-body">
                     <h5 className="card-title">{props.userName}</h5>
-                    {user.sub===props.id?<button onClick={handleEdit}>{'\u270E'}</button>:null}
+                    {user.sub===props.id?<button onClick={props.onClick}>{'\u270E'}</button>:null}
                     {user.sub===props.id?<button onClick={handleClick}>{'\u2715'}</button>:null}
                 </div>
             </div>
 </Col>
 <Col className="col-10">
 <div className="card">
-                <div className="card-body">
+                <form className="card-body" onSubmit={props.onSubmit}>
                     <p>{props.date.split('T')[0]}</p>
-                    <input type="text" value={props.body} id={props._id} disabled></input>
+                    <input type="text" id={props._id}placeholder={props.body}  disabled></input>
+                    <button type="submit">OK</button>
 
-                </div>
+                </form>
             </div>
 </Col>
 </>
