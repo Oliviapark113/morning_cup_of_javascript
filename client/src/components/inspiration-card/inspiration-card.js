@@ -1,23 +1,13 @@
-import React, {useEffect} from "react"
+import React from "react"
 import { useAuth0 } from "@auth0/auth0-react";
 import Col from "../col/col"
-import API from "../../utils/commentsAPI"
 
 const CommentsCard = (props) => {
 
     const { user } = useAuth0();
 
     console.log(props)
-    function handleClick(e) {
-        e.preventDefault()
-        API.deleteComment(props._id)
-        .then(pageRefresh())
-        .catch(err => console.log(err))
-    }  
 
-    const pageRefresh = () => window.location.reload(true)
-    
-//  console.log(props)
     return (
 <>
 <Col className="col-2">
@@ -25,7 +15,7 @@ const CommentsCard = (props) => {
                 <div className="card-body">
                     <h5 className="card-title">{props.userName}</h5>
                     {user.sub===props.id?<button onClick={props.onClick}>{'\u270E'}</button>:null}
-                    {user.sub===props.id?<button onClick={handleClick}>{'\u2715'}</button>:null}
+                    {user.sub===props.id?<button id={props._id} onClick={props.onClick2} >{'\u2715'}</button>:null}
                 </div>
             </div>
 </Col>

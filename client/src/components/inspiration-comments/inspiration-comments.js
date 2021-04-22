@@ -10,7 +10,6 @@ import Col from "../col/col"
 
 const Comments = () => {
     const [comments, setComments] = useState([])
-    const [updateComments, setUpdateComments] = useState()
     const { user } = useAuth0();
 
     useEffect(() => {
@@ -36,20 +35,36 @@ const Comments = () => {
         API.saveComment(dataObject)
             .then(resp => {
                 console.log(resp)
+                getComments()
             })
             .catch(err => console.log(err))
     }
+
+    function handleClick(e) {
+        e.preventDefault()
+        // console.log(e.target.id)
+        API.deleteComment(e.target.id)
+        .then(resp => {
+            console.log(resp)
+            getComments()
+        })
+        .catch(err => console.log(err))
+    }  
 
     function handleChange(e) {
         e.preventDefault()
         console.log(e.target[0].value)
         console.log(e.target[0].id)
-        API.updateComment(e.target[0].id, {body:e.target[0].value}).then(resp => console.log(resp))
+        API.updateComment(e.target[0].id, {body:e.target[0].value}).then(resp => {console.log(resp)
+            console.log(e.target.children[1])
+            const target = e.target.children[1]
+        target.toggleAttribute("disabled")
+            getComments()
+        })
         .catch(err => console.log(err))
 
 
     }
- console.log(updateComments)
 
     function handleEdit(e) {
         e.preventDefault()
@@ -69,7 +84,7 @@ const Comments = () => {
                         {...comment}
                         onClick={handleEdit}
                         onSubmit={handleChange}
-                        value={updateComments}
+                        onClick2={handleClick}
                     />
 
                 </Row>
