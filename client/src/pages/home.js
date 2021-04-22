@@ -34,7 +34,7 @@ const Home = () => {
                             desc={article.description === null ? "" : `${article.description}`}
                             content={article.content === null ? "" : `${article.content}`}
                             src={article.source.name}
-                            link={article.link}
+                            link={article.url}
                         />
                     </Col>
                 )
