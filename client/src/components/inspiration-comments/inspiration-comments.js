@@ -5,7 +5,7 @@ import Row from "../row/row"
 import CommentsInput from "../inspiration-input/inspiration-input"
 import API from "../../utils/commentsAPI"
 import CommentsCard from "../inspiration-card/inspiration-card"
-import Col from "../col/col"
+import "./style.css"
 
 
 const Comments = () => {
@@ -70,6 +70,7 @@ const Comments = () => {
         e.preventDefault()
         const target = e.target.parentNode.parentNode.parentNode.parentNode.children[1].children[0].children[0].children[1]
         target.toggleAttribute("disabled")
+        e.target.parentNode.parentNode.parentNode.parentNode.children[1].children[0].children[0].children[2].classList.toggle("editButton")
     }
 
     return (

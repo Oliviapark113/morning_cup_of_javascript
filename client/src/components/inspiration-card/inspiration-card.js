@@ -2,6 +2,7 @@ import React from "react"
 import { useAuth0 } from "@auth0/auth0-react";
 import Col from "../col/col"
 
+
 const CommentsCard = (props) => {
 
     const { user } = useAuth0();
@@ -24,7 +25,7 @@ const CommentsCard = (props) => {
                 <form className="card-body" onSubmit={props.onSubmit}>
                     <p>{props.date.split('T')[0]}</p>
                     <input type="text" id={props._id}placeholder={props.body}  disabled></input>
-                    <button type="submit">OK</button>
+                    <button type="submit" className="editButton">OK</button>
 
                 </form>
             </div>
