@@ -7,7 +7,7 @@ const CommentsCard = (props) => {
 
     const { user } = useAuth0();
 
-    console.log(props)
+    // console.log(props)
 
     return (
 <>
