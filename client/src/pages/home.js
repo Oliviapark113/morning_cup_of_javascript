@@ -31,7 +31,17 @@ if(e.target.innerHTML=== "Read More") {
 else {
     e.target.innerHTML="Read More"
 }
-e.target.parentNode.children[4].classList.toggle("articleReadMore")
+
+console.log(e.target.parentNode.children[4].innerHTML==="Read Less")
+if(e.target.parentNode.children[4].innerHTML==="Read Less")
+e.target.parentNode.children[3].classList.toggle("articleReadMore")
+else {
+    e.target.parentNode.children[4].classList.toggle("articleReadMore")
+}
+
+console.log(e.target.parentNode.children[4])
+console.log(e)
+
 
     }
 
