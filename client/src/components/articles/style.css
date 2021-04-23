@@ -1,3 +1,41 @@
 .articleReadMore{
     display:none;
 }
+
+.standardImg{
+    min-width: 150px;
+    min-height: 150px;
+    display:block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.articleCard {
+    margin-top: 10px;
+    background-color: #f9f7f1;
+    border-color:#2f2f2f ;
+    border:2px solid;
+    box-shadow:7px 7px 7px #8d8d8d;
+}
+
+.articlebtn {
+    background-color: #2f2f2f;
+    border-color: #2f2f2f;
+}
+
+.altImage {
+    border-color:#2f2f2f ;
+    border:2px solid
+}
+
+@media only screen and (max-width: 991px) {
+    .col-3 {
+      width: 50%;
+    }
+  }
+
+  @media only screen and (max-width: 767px) {
+    .col-3 {
+      width: 100%;
+    }
+  }

@@ -39,7 +39,7 @@ e.target.parentNode.children[4].classList.toggle("articleReadMore")
         <Container>
             <Row>
                 {articles.map((article, index) => (
-                    <Col className="col" key={index}>
+                    <Col className="col-3" key={index}>
                         <Article
                             title={article.title}
                             img={article.urlToImage === null ? "" : `${article.urlToImage}`}
