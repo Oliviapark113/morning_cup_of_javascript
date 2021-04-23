@@ -5,10 +5,16 @@ import Col from "../components/col/col"
 import axios from "axios"
 import { useAuth0 } from "@auth0/auth0-react";
 import Article from "../components/articles/articles"
+import date from "date-and-time"
+
+
 
 const Home = () => {
     const [articles, setArticles] = useState([])
     const { isAuthenticated } = useAuth0();
+
+    const now = new Date()
+    const newDate = date.format(now, 'ddd, MMM DD YYYY')
 
     useEffect(() => {
         getNews()
@@ -47,6 +53,15 @@ console.log(e)
 
     return (
         <Container>
+            <Row>
+                <Col className="col-12">
+                    <p className="dateAndtime">
+            {newDate}
+
+                    </p>
+
+                </Col>
+            </Row>
             <Row>
                 {articles.map((article, index) => (
                     <Col className="col-3" key={index}>
