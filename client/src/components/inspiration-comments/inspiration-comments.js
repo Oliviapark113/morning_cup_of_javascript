@@ -60,15 +60,21 @@ const Comments = () => {
 
     function handleChange(e) {
         e.preventDefault()
-        console.log(e.target[0].value)
-        console.log(e.target[0].id)
-        API.updateComment(e.target[0].id, {body:e.target[0].value}).then(resp => {console.log(resp)
-            console.log(e.target.children[1])
-            const target = e.target.children[1]
-        target.toggleAttribute("disabled")
-            getComments()
-        })
-        .catch(err => console.log(err))
+        // console.log(e.target[0].value)
+        // console.log(e.target[0].id)
+        console.log(e.target[1])
+        if(e.target[0].value==="") {
+
+        } else {
+            API.updateComment(e.target[0].id, {body:e.target[0].value}).then(resp => {console.log(resp)
+                console.log(e.target.children[1])
+                const target = e.target.children[1]
+            e.target[1].classList.toggle("editButton")
+            target.toggleAttribute("disabled")
+                getComments()
+            })
+            .catch(err => console.log(err))
+        }
 
 
     }
