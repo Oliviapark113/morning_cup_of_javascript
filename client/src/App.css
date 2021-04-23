@@ -2,6 +2,20 @@
   text-align: center;
 }
 
+.dateAndtime{
+  font-family: 'Limelight', cursive;
+  font-weight: bolder;
+  text-align: center;
+  border-color: #2f2f2f;
+  border-radius: 5px;
+  margin-top:10px;
+  width:100%;
+  border: 2px solid;
+  box-shadow:7px 7px 7px #8d8d8d;
+  font-weight: bolder;
+
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

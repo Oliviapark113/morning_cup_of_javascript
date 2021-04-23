@@ -5,10 +5,16 @@ import Col from "../components/col/col"
 import axios from "axios"
 import { useAuth0 } from "@auth0/auth0-react";
 import Article from "../components/articles/articles"
+import date from "date-and-time"
+
+
 
 const Home = () => {
     const [articles, setArticles] = useState([])
     const { isAuthenticated } = useAuth0();
+
+    const now = new Date()
+    const newDate = date.format(now, 'ddd, MMM DD YYYY')
 
     useEffect(() => {
         getNews()
@@ -31,15 +37,34 @@ if(e.target.innerHTML=== "Read More") {
 else {
     e.target.innerHTML="Read More"
 }
-e.target.parentNode.children[4].classList.toggle("articleReadMore")
+
+console.log(e.target.parentNode.children[4].innerHTML==="Read Less")
+if(e.target.parentNode.children[4].innerHTML==="Read Less")
+e.target.parentNode.children[3].classList.toggle("articleReadMore")
+else {
+    e.target.parentNode.children[4].classList.toggle("articleReadMore")
+}
+
+console.log(e.target.parentNode.children[4])
+console.log(e)
+
 
     }
 
     return (
         <Container>
             <Row>
+                <Col className="col-12">
+                    <p className="dateAndtime">
+            {newDate}
+
+                    </p>
+
+                </Col>
+            </Row>
+            <Row>
                 {articles.map((article, index) => (
-                    <Col className="col" key={index}>
+                    <Col className="col-3" key={index}>
                         <Article
                             title={article.title}
                             img={article.urlToImage === null ? "" : `${article.urlToImage}`}
