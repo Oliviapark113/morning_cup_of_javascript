@@ -3,6 +3,8 @@
 }
 
 .dateAndtime{
+  font-family: 'Limelight', cursive;
+  font-weight: bolder;
   text-align: center;
   border-color: #2f2f2f;
   border-radius: 5px;

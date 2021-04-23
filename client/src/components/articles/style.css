@@ -2,6 +2,11 @@
     display:none;
 }
 
+.articleTitle {
+    font-family: 'Limelight', cursive;
+    font-weight: bolder;
+}
+
 .standardImg{
     min-width: 150px;
     min-height: 150px;
@@ -19,6 +24,7 @@
 }
 
 .articlebtn {
+    font-family: 'Limelight', cursive;
     background-color: #2f2f2f;
     border-color: #2f2f2f;
     display:block;

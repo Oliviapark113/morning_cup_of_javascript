@@ -11,7 +11,7 @@ const image = <img src={img} className="img-fluid img altImage" alt={title}/>
   return (
     <div className="card articleCard">
       <div className="card-body">
-        <h5 className="card-title">{title}</h5>
+        <h5 className="card-title articleTitle">{title}</h5>
         {img==="" ? <SiCoffeescript className="standardImg img-fluid img" /> :image }   
         {author==="" ? null :<p className="card-text">Author: {author}</p>} 
         {desc==="" ? null :<p className="card-text">Description: {desc}</p>}    
