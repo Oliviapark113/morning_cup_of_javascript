@@ -49,6 +49,7 @@ e.target.parentNode.children[4].classList.toggle("articleReadMore")
                             src={article.source.name}
                             link={article.link}
                             onClick={onClickHandler}
+
                         />
                     </Col>
                 )

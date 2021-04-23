@@ -3,6 +3,7 @@ import Container from "../components/container/container"
 import ChallengesAPI from "../utils/challengesAPI"
 import Row from "../components/row/row"
 import Col from "../components/col/col"
+import { BsFillTrashFill, BsFillArchiveFill} from "react-icons/bs";
 
 import {
     Link,
@@ -59,7 +60,7 @@ import {
        <Container>
          <Row>
          <Col>
-         <h1>My Saved List</h1>
+         <h1><BsFillArchiveFill/>My Saved List</h1>
          </Col>
          </Row>
          <Row>
@@ -69,7 +70,7 @@ import {
          <>
          <Col className="col-md-8">
              <a href={list.url} target="_blank" rel="noreferrer" >{list.name}</a>
-             <button onClick={()=>handleDelete(list._id)}>DELETE</button>
+             <button onClick={()=>handleDelete(list._id)}><BsFillTrashFill/> DELETE</button>
            </Col>
            <Col className="col-md-4">
              <button onClick={()=>handleView(list._id)}>CHALLENGE</button>
