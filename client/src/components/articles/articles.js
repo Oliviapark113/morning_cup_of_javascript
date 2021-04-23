@@ -16,9 +16,9 @@ const image = <img src={img} className="img-fluid img altImage" alt={title}/>
         {author==="" ? null :<p className="card-text">Author: {author}</p>} 
         {desc==="" ? null :<p className="card-text">Description: {desc}</p>}    
         {content==="" ? null :<p className="card-text articleReadMore">{content}</p>}   
-        {content==="" ? null : <button onClick={onClick} className="btn btn-primary articlebtn">Read More</button>}   
+        {content==="" ? null : <button onClick={onClick} className="articlebtn">Read More</button>}   
        
-        <a href={link} target="_blank" rel="noreferrer" className="btn btn-primary articlebtn">Link to Article at {src}</a>
+        <a href={link} target="_blank" rel="noreferrer" className="articlebtn artbtn">Link to Article at {src}</a>
       </div>
     </div>
   )
