@@ -2,11 +2,7 @@
   text-align: center;
 }
 
-.inspMe,.inspResButton,.inspResult,.inspMeButton, .commentBtn {
-  box-shadow:7px 7px 7px #8d8d8d;
-  border-color: #2f2f2f;
-  border-radius: 5px;
-}
+
 
 .inspMe,.inspResult,.dateAndtime {
   text-align: center;
@@ -24,15 +20,6 @@
   font-family: 'Limelight', cursive;
 }
 
-.inspResButton{
-  background-color: #2f2f2f;
-  display:block;
-  margin:0 auto;
-  margin-bottom: 10px;
-  color: white;
-  padding-left: 10px;
-  padding-right: 55px;
-}
 
 .inspMeResult{
 width:20%;
@@ -60,21 +47,25 @@ width:20%;
   border-radius: 5px;
 }
 
-.inspMeButton {
-  background-color: #2f2f2f;
+.inspMeButton, .inspResButton, .editButton2 {
   display:block;
   margin:0 auto;
+  color: #2f2f2f;
+  background-color: #f9f7f1;
   margin-bottom: 10px;
-  color: white;
+  border-radius: 5px;
+  border-style: none;
 }
 
 .commentBtn {
-  background-color: #2f2f2f;
-  margin: 10px;
-  color: white;
+  color: #2f2f2f;
+  background-color: #f9f7f1;
+  margin:10px;
+  border-radius: 5px;
+  border-style: none;
 }
 
-.inspMeButton:hover,.inspMeButton:focus,.inspMeButton:active,.inspResButton:hover,.inspResButton:focus,.inspResButton:active {
+.editButton2:hover,.editButton2:focus,.editButton2:active,.commentBtn:hover,.commentBtn:focus,.commentBtn:active,.inspMeButton:hover,.inspMeButton:focus,.inspMeButton:active,.inspResButton:hover,.inspResButton:focus,.inspResButton:active {
   background-color: #2f2f2f;
   color:#f39c38;
   border-color: #2f2f2f;
@@ -90,9 +81,57 @@ width:20%;
 
 }
 
+.editButton2{
+  margin-top: 10px;
+}
+
+.inspMe,.inspResButton,.inspResult,.inspMeButton,.commentBtn, .inspComment, .editButton2 {
+  box-shadow:7px 7px 7px #8d8d8d;
+  border:2px solid;
+  border-color: #2f2f2f;
+  border-radius: 5px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+@media only screen and (max-width: 991px) {
+  .inspMe, .inspResult {
+    width: 100%;
+  }
+  .inspMeTitle {
+    display:block;
+    margin:0 auto;
+  }
+   .inspRes {
+    width:30%;
+    margin:10px;
+    display: inline-block;
+  }
+  .inspMeResult{
+    width:100%;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+.col-2{
+  flex:none;
+  width:100%
+}
+.col-10{
+  flex:none;
+  width:100%
+}
+.card-title{
+width:30%;
+display: inline;
+}
+
+.commentBtn{
+  width:30%
+}
+
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -130,5 +169,6 @@ body {
   color: #2f2f2f;
   background-color: #f9f7f1;
 }
+
 
 
