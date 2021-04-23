@@ -3,10 +3,10 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const CommentsInput = (props) => {
  
-function clearHandler (e) {
-    e.preventDefault()
- e.target.form[0].value = null
-}
+// function clearHandler (e) {
+//     e.preventDefault()
+//  e.target.form[0].value = null
+// }
     console.log(props.onSubmit)
 
 
@@ -15,7 +15,7 @@ function clearHandler (e) {
             <form onSubmit={props.onSubmit}>
                 <input id="userComments"></input>
                 <label htmlFor="userComments"></label>
-                 <button onClick={clearHandler}>Clear</button>
+                 {/* <button onClick={clearHandler}>Clear</button> */}
                  <button type="submit">Submit</button>
             </form>
         </div>

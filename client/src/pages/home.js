@@ -22,6 +22,19 @@ const Home = () => {
                 setArticles(resp.data.articles)
             }).catch(err => console.log(err))
     }
+
+    function onClickHandler (e) {
+e.preventDefault()
+if(e.target.innerHTML=== "Read More") {
+    e.target.innerHTML = "Read Less"
+}
+else {
+    e.target.innerHTML="Read More"
+}
+e.target.parentNode.children[4].classList.toggle("articleReadMore")
+
+    }
+
     return (
         <Container>
             <Row>
@@ -34,7 +47,9 @@ const Home = () => {
                             desc={article.description === null ? "" : `${article.description}`}
                             content={article.content === null ? "" : `${article.content}`}
                             src={article.source.name}
-                            link={article.url}
+                            link={article.link}
+                            onClick={onClickHandler}
+
                         />
                     </Col>
                 )

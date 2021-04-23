@@ -1,9 +1,13 @@
 const db = require('../models')
+const date = require('date-and-time')
 
 module.exports = {
     saveComment: function(req, res) {
         console.log(req.body)
-        db.Comment.create(req.body)
+        const now =  new Date()
+        const newDate = date.format(now, 'YYYY/MM/DD HH:mm:ss')
+        console.log(typeof newDate)
+        db.Comment.create({...req.body, date: newDate})
         .then(data => res.json(data))
         .catch(err => {
             console.log(err)
