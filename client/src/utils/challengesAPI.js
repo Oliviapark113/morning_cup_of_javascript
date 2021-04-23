@@ -4,7 +4,7 @@ export default {
   saveAnswer: function(data) {
     return axios.post("/api/challengeview", data)
   },
-  getAnswers: function(data) {
+  getAnswers: function() {
     return axios.get("/api/challengeview")
   },
   getAnswer: function( id) {
