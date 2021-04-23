@@ -1,6 +1,5 @@
 import React, {useState, useReducer} from "react"
 import Container from "../components/container/container"
-// import Parser from 'markdown-parser'
 import Marked from "marked"
 
 import {
@@ -27,7 +26,7 @@ import "./pagesCSS/challengeView.css"
 const ChallengeView = () => {
 
   const [saveAnswer, setSaveAnswer] = useState([])
-  const [markdown, setMarkdown] = useState()
+ 
 
   const [count , dispatch] = useReducer((state, action)=>{
     console.log("action", action)
@@ -95,7 +94,7 @@ const ChallengeView = () => {
   return(
     <Container className="view-container">
       <Row className ="view-row">
-      <Col className="col-md-6 challenge-list">
+      <Col className="col-md-5 challenge-list">
         <div className="card" >
           <div className="card-body">
             <h5 className="card-title">{location.state.name}</h5>

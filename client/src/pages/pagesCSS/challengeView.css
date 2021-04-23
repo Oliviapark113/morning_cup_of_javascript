@@ -15,7 +15,6 @@
     flex-wrap: nowrap;
     justify-content: space-evenly;
    
-  
 }
 .card{
     margin-top:47px;
@@ -55,4 +54,38 @@
   
   .hard-color {
     background-color: rgb(236, 127, 127)
+  }
+
+
+  @media (max-width: 991px) {
+
+    .view-container{
+        margin-top: 10px;
+        display:flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        font-size: 1.5rem;
+    
+    }
+
+    .view-row{
+        display:flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: space-evenly;
+       
+    }
+
+    .card{
+        margin: 20px;
+        padding: 10px;
+        /* width: 90%; */
+    }
+    
+
+   
+
+
+
   }
