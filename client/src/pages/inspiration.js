@@ -91,6 +91,12 @@ const Inspiration = () => {
         console.log(e.target.checked)
         const checkboxName = e.target.attributes.name.nodeValue
         const checkboxChecked = e.target.checked
+        if(checkboxChecked === false){
+            setIdea({ ...idea, [checkboxName]: {
+                name: '',
+                locationUrl: ''
+            } })
+        }
         setCheckBoxes({ ...checkboxes, [checkboxName]: checkboxChecked }
         )
     }

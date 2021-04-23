@@ -4,7 +4,7 @@ import "./style.css"
 
 // deconstruct props and makes the cards for projects
 const Article = (
-  {title, img, author, desc, content, src, link}
+  {title, img, author, desc, content, src, link, onClick}
   ) => {
 // console.log(content)
 const image = <img src={img} className="img-fluid img" alt={title}/>
@@ -15,8 +15,9 @@ const image = <img src={img} className="img-fluid img" alt={title}/>
         {img==="" ? null :image }   
         {author==="" ? null :<p className="card-text">Author: {author}</p>} 
         {desc==="" ? null :<p className="card-text">Description: {desc}</p>}    
-        {content==="" ? null :<p className="card-text">Description: {content}</p>}      
-        
+        {content==="" ? null :<p className="card-text articleReadMore">{content}</p>}   
+        {content==="" ? null : <button onClick={onClick} className="btn btn-primary">Read More</button>}   
+       
         <a href={link} target="_blank" rel="noreferrer" className="btn btn-primary">Link to Article at {src}</a>
       </div>
     </div>
