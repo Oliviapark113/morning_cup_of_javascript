@@ -23,13 +23,19 @@ const Comments = () => {
             }).catch(err => console.log(err))
     }
 
+    function clearHandler (e) {
+        e.preventDefault()
+     e.target.reset()
+    }
+
     function handleSubmit(e) {
         e.preventDefault()
         console.log(e.target[0].value)
+        // const date = Date.now().getTime()
         const dataObject = {
             id: user.sub,
             body: e.target[0].value,
-            userName: user.nickname
+            userName: user.nickname,
         }
         // console.log(dataObject)
         API.saveComment(dataObject)
@@ -37,6 +43,7 @@ const Comments = () => {
                 console.log(resp)
                 getComments()
             })
+            .then(clearHandler(e))
             .catch(err => console.log(err))
     }
 

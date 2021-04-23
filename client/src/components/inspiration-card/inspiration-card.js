@@ -7,7 +7,7 @@ const CommentsCard = (props) => {
 
     const { user } = useAuth0();
 
-    console.log(props)
+    // console.log(props)
 
     return (
 <>
@@ -23,7 +23,7 @@ const CommentsCard = (props) => {
 <Col className="col-10">
 <div className="card">
                 <form className="card-body" onSubmit={props.onSubmit}>
-                    <p>{props.date.split('T')[0]}</p>
+                    <p>{props.date}</p>
                     <input type="text" id={props._id}placeholder={props.body}  disabled></input>
                     <button type="submit" className="editButton">OK</button>
 
