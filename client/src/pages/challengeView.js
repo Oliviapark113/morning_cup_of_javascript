@@ -28,7 +28,6 @@ const ChallengeView = () => {
 
   const [saveAnswer, setSaveAnswer] = useState([])
 
-
   // const [count, dispatch] = useReducer((state, action) => {
   //   console.log("action", action)
   //   console.log("state", state)
@@ -45,10 +44,9 @@ const ChallengeView = () => {
   console.log(location)
 
   const challengeCode = Marked(location.state.description)
-  console.log(challengeCode)
-
 
   const { user } = useAuth0();
+  
   const onChange = (newValue) => {
     setSaveAnswer(newValue)
   }
@@ -56,7 +54,6 @@ const ChallengeView = () => {
   const handleEditorTheme = e => {
     setEditorTheme(e.target.value)
   }
-
 
   const handleSave = id => {
     const findAnswer = {
@@ -76,10 +73,7 @@ const ChallengeView = () => {
         history.push("./savedanswerlist")
       })
       .catch(err => console.log(err))
-
   }
-
-
 
   let difficulty = "EASY"
   if (location.state.rank.id > -8) {
@@ -87,7 +81,6 @@ const ChallengeView = () => {
   }
 
   const rankColor = difficulty === "EASY" ? "easy-color" : "hard-color"
-
 
   return (
 
@@ -107,13 +100,13 @@ const ChallengeView = () => {
                   <a href={location.state.url} target="_blank" rel="noreferrer" className="card-link">CodeWarsLink</a>
                 </button>
                 {/* <button className="likes-btn" onClick={() => dispatch("add")}> <BsFillHeartFill className="likes-icon" /> </button> {count} Likes */}
-            </div>
+              </div>
             </div>
           </div>
         </Col>
         <Col className="col-md-6 editor">
           <Row className="select-row">
-            <label for="theme">Choose a theme:</label>
+            <label htmlFor="theme">Choose a theme:</label>
             <select name="theme" id="theme" onChange={handleEditorTheme}>
               <option value="dracula">dracula</option>
               <option value="dawn">dawn</option>
@@ -137,7 +130,7 @@ const ChallengeView = () => {
           </Row>
           <Row>
             <Col className="col-md-3 button-container">
-              <button type="button" className="save-btn" onClick={() => { handleSave(location.state.id) }}>< FaSave />SAVE</button>
+              <button type="button" className="save-btn" onClick={() => { handleSave(location.state.id) }}><FaSave /> SAVE</button>
             </Col>
           </Row>
         </Col>

@@ -4,6 +4,7 @@ import ChallengesAPI from "../utils/challengesAPI"
 import Row from "../components/row/row"
 import Col from "../components/col/col"
 import { BsFillTrashFill, BsFillArchiveFill} from "react-icons/bs";
+import { FaSave } from "react-icons/fa";
 import "./pagesCSS/savedAnswerList.css"
 
 import {
@@ -61,7 +62,7 @@ import {
        <Container>
          <Row>
          <Col>
-         <h1 className="save-title"><BsFillArchiveFill /> My Saved List</h1>
+         <h1 className="save-title"><FaSave/> My Saved List</h1>
          </Col>
          </Row>
          <Row>
