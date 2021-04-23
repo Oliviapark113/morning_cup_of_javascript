@@ -2,16 +2,90 @@
   text-align: center;
 }
 
-.dateAndtime{
-  font-family: 'Limelight', cursive;
-  font-weight: bolder;
-  text-align: center;
+.inspMe,.inspResButton,.inspResult,.inspMeButton, .commentBtn {
+  box-shadow:7px 7px 7px #8d8d8d;
   border-color: #2f2f2f;
   border-radius: 5px;
+}
+
+.inspMe,.inspResult,.dateAndtime {
+  text-align: center;
+}
+
+.inspMe{
+  margin-top: 10px;
+  border:2px solid;
+  width:70%;
+  margin-right: 10px;
+  flex:none
+}
+
+.inspResButton,.inspMeTitle,.inspMeButton,.dateAndtime {
+  font-family: 'Limelight', cursive;
+}
+
+.inspResButton{
+  background-color: #2f2f2f;
+  display:block;
+  margin:0 auto;
+  margin-bottom: 10px;
+  color: white;
+  padding-left: 10px;
+  padding-right: 55px;
+}
+
+.inspMeResult{
+width:20%;
+}
+
+.inspRes{
+  white-space: nowrap;
+}
+
+
+.inspMeTitle{
+  font-weight: bolder;
+}
+
+.inspResult{
+  margin-top: 10px;
+  border:2px solid;
+  background-color: #f9f7f1;
+  margin-bottom: 10px;
+}
+
+.inspComment{
+  border:2px solid;
+  background-color: #f9f7f1;
+  border-radius: 5px;
+}
+
+.inspMeButton {
+  background-color: #2f2f2f;
+  display:block;
+  margin:0 auto;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.commentBtn {
+  background-color: #2f2f2f;
+  margin: 10px;
+  color: white;
+}
+
+.inspMeButton:hover,.inspMeButton:focus,.inspMeButton:active,.inspResButton:hover,.inspResButton:focus,.inspResButton:active {
+  background-color: #2f2f2f;
+  color:#f39c38;
+  border-color: #2f2f2f;
+}
+
+
+.dateAndtime{
+  font-weight: bolder;
   margin-top:10px;
   width:100%;
   border: 2px solid;
-  box-shadow:7px 7px 7px #8d8d8d;
   font-weight: bolder;
 
 }
@@ -56,3 +130,5 @@ body {
   color: #2f2f2f;
   background-color: #f9f7f1;
 }
+
+
