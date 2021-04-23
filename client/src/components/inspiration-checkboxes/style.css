@@ -1,0 +1,25 @@
+.inscheck {
+    font-family: 'Limelight', cursive;
+    background-color: #2f2f2f;
+    border-color: #2f2f2f;
+    display:block;
+    margin:0 auto;
+    margin-top: 10px;
+    color: white;
+    border-radius: 5px;
+    box-shadow:7px 7px 7px #8d8d8d;
+    width: 33%;
+    text-align: center;
+    width: 100%;
+    padding-right: 5px;
+    padding-left: 5px;
+    margin: 5px;
+}
+
+.inscheck:after {
+    background-color: white;
+}
+
+input[type=checkbox]:checked + label {
+    color:#f39c38;
+    }
