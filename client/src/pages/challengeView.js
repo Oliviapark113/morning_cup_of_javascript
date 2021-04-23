@@ -1,5 +1,7 @@
 import React, {useState, useReducer} from "react"
 import Container from "../components/container/container"
+// import Parser from 'markdown-parser'
+import Marked from "marked"
 
 import {
   Link,
@@ -20,12 +22,12 @@ import "ace-builds/src-noconflict/theme-dreamweaver";
 import ChallengesAPI from "../utils/challengesAPI";
 import { useAuth0 } from "@auth0/auth0-react";
 import { BsFillHeartFill, BsFillArchiveFill } from "react-icons/bs";
-
-
+import "./pagesCSS/challengeView.css"
 
 const ChallengeView = () => {
 
   const [saveAnswer, setSaveAnswer] = useState([])
+  const [markdown, setMarkdown] = useState()
 
   const [count , dispatch] = useReducer((state, action)=>{
     console.log("action", action)
@@ -41,6 +43,10 @@ const ChallengeView = () => {
 
   const location = useLocation();
   console.log(location)
+
+  const challenge = Marked(location.state.description)
+  console.log(challenge)
+
 
   const { user } = useAuth0();
   const onChange = (newValue) => {
@@ -74,7 +80,7 @@ const ChallengeView = () => {
     .catch(err => console.log(err))
 
   }
-  // console.log(saveAnswer)
+
 
 
   let difficulty = "EASY"
@@ -82,21 +88,29 @@ const ChallengeView = () => {
     difficulty = "HARD"
   }
 
+  const rankColor = difficulty === "EASY" ? "easy-color" : "hard-color"
+
+
+
   return(
-    <Container>
+    <Container className="view-container">
+      <Row className ="view-row">
       <Col className="col-md-6 challenge-list">
         <div className="card" >
           <div className="card-body">
             <h5 className="card-title">{location.state.name}</h5>
-            <h6 className="card-subtitle mb-2 text-muted">{difficulty}</h6>
-            <p className="card-text">{location.state.description}</p>
+            <h6 className={`card-subtitle mb-2 text-muted rank ${rankColor}`}>{difficulty}</h6>
+            <div dangerouslySetInnerHTML={{__html: challenge}} className="card-text"/>
             <Link to="/challenges" className="card-link">Back</Link>
             <a href={location.state.url} target="_blank" rel="noreferrer" className="card-link">CodeWars Link</a>
             <button className = "btn btn-danger" onClick={()=>dispatch("add")}> <BsFillHeartFill /> </button> {count} Likes
           </div>
         </div>
-          <label for="theme">Choose a theme:</label>
-          <select name="theme" id="theme" onChange= {handleEditorTheme}>
+      </Col>
+      <Col className="col-md-6 editor">
+        <Row className="select-row">
+      <label for="theme">Choose a theme:</label>
+          <select  name="theme" id="theme" onChange= {handleEditorTheme}>
             <option value="dracula">dracula</option>
             <option value="dawn">dawn</option>
             <option value="chaos">chaos</option>
@@ -105,23 +119,25 @@ const ChallengeView = () => {
             <option value="dreamweaver">dreamweaver</option>
           </select>
           <br></br>
-           
-
-      </Col>
-      <Col className="col-md-6 editor">
+          </Row>
+          <Row>
         <AceEditor
           mode="javascript"
           theme={editorTheme}
           onChange={onChange}
           name="ANSWER_UNIQUE_ID"
           editorProps={{ $blockScrolling: true }}
+          width="700px"
+          fontSize="18px"
         />
+        </Row>
       <Row>
         <Col className="col-md-3 button-container">
-          <button type="button" className="btn btn-primary" onClick={()=>{handleSave(location.state.id)}}><BsFillArchiveFill></BsFillArchiveFill> SAVE </button>
+          <button type="button" className="btn btn-primary save-btn" onClick={()=>{handleSave(location.state.id)}}><BsFillArchiveFill></BsFillArchiveFill> SAVE </button>
         </Col>
       </Row>
       </Col>
+      </Row>
     </Container>
     )
 }

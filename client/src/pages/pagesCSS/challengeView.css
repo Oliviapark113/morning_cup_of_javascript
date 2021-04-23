@@ -1,0 +1,58 @@
+
+.view-container{
+    margin-top: 20px;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    font-size: 1.5rem;
+
+}
+
+.view-row{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+   
+  
+}
+.card{
+    margin-top:47px;
+    padding: 10px;
+    /* width: 90%; */
+}
+.card-title{
+    font-family: 'Limelight', cursive;
+    font-size: 2rem;
+}
+
+.editor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+}
+.select-row{
+    margin-bottom: 20px;
+}
+.save-btn{
+    margin-top: 20px;
+}
+
+
+.rank {
+    background-color: rgba(243, 156, 56, 0.7);
+    border-radius: 5px;
+    width: 65%;
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+  
+  .easy-color {
+    background-color: rgb(166, 241, 166);
+  }
+  
+  .hard-color {
+    background-color: rgb(236, 127, 127)
+  }

@@ -4,6 +4,7 @@ import ChallengesAPI from "../utils/challengesAPI"
 import Row from "../components/row/row"
 import Col from "../components/col/col"
 import { BsFillTrashFill, BsFillArchiveFill} from "react-icons/bs";
+import "./pagesCSS/savedAnswerList.css"
 
 import {
     Link,
@@ -60,21 +61,25 @@ import {
        <Container>
          <Row>
          <Col>
-         <h1><BsFillArchiveFill/>My Saved List</h1>
+         <h1 className="save-title"><BsFillArchiveFill /> My Saved List</h1>
          </Col>
          </Row>
          <Row>
          {saveList.map(list =>
           
          ( 
-         <>
-         <Col className="col-md-8">
-             <a href={list.url} target="_blank" rel="noreferrer" >{list.name}</a>
-             <button onClick={()=>handleDelete(list._id)}><BsFillTrashFill/> DELETE</button>
-           </Col>
-           <Col className="col-md-4">
-             <button onClick={()=>handleView(list._id)}>CHALLENGE</button>
-           </Col>
+         <>    
+               <Row className="save-row">
+                 <Col className="col-md-6">
+                   <a href={list.url} target="_blank" rel="noreferrer" >{list.name}</a>
+                 </Col>     
+                 <Col className="col-md-3 challenge">
+                   <button className="btn-style" onClick={() => handleView(list._id)}>CHALLENGE</button>
+                 </Col>
+                 <Col className="col-md-1 delete">
+                   <button className="btn-style" onClick={() => handleDelete(list._id)}><BsFillTrashFill className="delete-btn"/></button>
+                 </Col>
+               </Row>
            </>
            )
          )}
