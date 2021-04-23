@@ -5,53 +5,50 @@ import styled from 'styled-components'
 
 
 const CommentsCard = (props) => {
-    let StyleTextArea =  styled.textarea`
+    const { user } = useAuth0();
+    let StyleTextArea = styled.textarea`
     height: 100fpx;
     `
 
     // console.log(props.body.length)
-    if(props.body.length>=500) {
+    if (props.body.length >= 500) {
         StyleTextArea = styled.textarea`
         height: 200px;
         `
     }
-    else if(props.body.length>=400) {
+    else if (props.body.length >= 400) {
         StyleTextArea = styled.textarea`
         height: 150px;
         `
     }
-    else if(props.body.length>=300) {
+    else if (props.body.length >= 300) {
         StyleTextArea = styled.textarea`
         height: 125px;
         `
     }
-    
-    const { user } = useAuth0();
-
-    // console.log(props)
 
     return (
-<>
-<Col className="col-2">
-            <div className="card inspComment">
-                <div className="card-body">
-                    <h5 className="card-title">{props.userName}</h5>
-                    {user.sub===props.id?<button className='commentBtn' onClick={props.onClick}>{'\u270E'}</button>:null}
-                    {user.sub===props.id?<button className='commentBtn' id={props._id} onClick={props.onClick2} >{'\u2715'}</button>:null}
+        <>
+            <Col className="col-2">
+                <div className="card inspComment">
+                    <div className="card-body">
+                        <h5 className="card-title">{props.userName}</h5>
+                        {user.sub === props.id ? <button className='commentBtn' onClick={props.onClick}>{'\u270E'}</button> : null}
+                        {user.sub === props.id ? <button className='commentBtn' id={props._id} onClick={props.onClick2} >{'\u2715'}</button> : null}
+                    </div>
                 </div>
-            </div>
-</Col>
-<Col className="col-10">
-<div className="card">
-                <form className="card-body inspComment" onSubmit={props.onSubmit}>
-                    <p>{props.date}</p>
-                    <StyleTextArea className='form-control' type="text" id={props._id}placeholder={props.body}  disabled/>
-                    <button type="submit" className="editButton editButton2">OK</button>
+            </Col>
+            <Col className="col-10">
+                <div className="card">
+                    <form className="card-body inspComment" onSubmit={props.onSubmit}>
+                        <p>{props.date}</p>
+                        <StyleTextArea className='form-control' type="text" id={props._id} placeholder={props.body} disabled />
+                        <button type="submit" className="editButton editButton2">OK</button>
 
-                </form>
-            </div>
-</Col>
-</>
+                    </form>
+                </div>
+            </Col>
+        </>
 
     )
 }

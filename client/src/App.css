@@ -134,6 +134,13 @@ display: inline;
 
 }
 
+
+@media only screen and (max-width: 584px) {
+  .inspMe,.inspResButton,.inspResult,.inspMeButton,.commentBtn, .inspComment, .editButton2 {
+    box-shadow: none;
+  }
+
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

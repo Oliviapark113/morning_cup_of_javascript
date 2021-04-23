@@ -110,7 +110,7 @@ const Inspiration = () => {
                 <Col className="inspMe">
                     <div className="">
                         <h3 className="inspMeTitle">Inspiration Generator</h3>
-                        <p>This Inspiration Generator works in a Magical, Mystical and Fantastical ways to generate a list of components that will challenge your Developer skills</p>
+                        <p>This Inspiration Generator works in a Magical, Mystical and Fantastical ways to generate a list of components that will challenge your Developer skills, choose what your random inspiration button will generate up above</p>
                         <RandomButton className="inspMeButton" onClick={handleClick} type="button">INSPIRE ME!!</RandomButton>
                     </div>
                 </Col>
