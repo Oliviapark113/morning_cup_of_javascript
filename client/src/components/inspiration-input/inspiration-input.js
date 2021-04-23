@@ -3,11 +3,12 @@ import React from "react"
 const CommentsInput = (props) => {
  
   return  (
-        <div>
+        <div className='inspResult'>
             <form onSubmit={props.onSubmit}>
-                <input id="userComments"></input>
+              <h3 className="inspMeTitle">Made something? Found something? Tell us about your adventure:</h3>
+                <textarea className='form-control' id="userComments"/>
                 <label htmlFor="userComments"></label>
-                 <button type="submit">Submit</button>
+                 <button className='inspMeButton' type="submit">Submit</button>
             </form>
         </div>
       )

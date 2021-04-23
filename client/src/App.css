@@ -2,25 +2,145 @@
   text-align: center;
 }
 
-.dateAndtime{
-  font-family: 'Limelight', cursive;
-  font-weight: bolder;
+
+
+.inspMe,.inspResult,.dateAndtime {
   text-align: center;
-  border-color: #2f2f2f;
+}
+
+.inspMe{
+  margin-top: 10px;
+  border:2px solid;
+  width:70%;
+  margin-right: 10px;
+  flex:none
+}
+
+.inspResButton,.inspMeTitle,.inspMeButton,.dateAndtime {
+  font-family: 'Limelight', cursive;
+}
+
+
+.inspMeResult{
+width:20%;
+}
+
+.inspRes{
+  white-space: nowrap;
+}
+
+
+.inspMeTitle{
+  font-weight: bolder;
+}
+
+.inspResult{
+  margin-top: 10px;
+  border:2px solid;
+  background-color: #f9f7f1;
+  margin-bottom: 10px;
+}
+
+.inspComment{
+  border:2px solid;
+  background-color: #f9f7f1;
   border-radius: 5px;
+}
+
+.inspMeButton, .inspResButton, .editButton2 {
+  display:block;
+  margin:0 auto;
+  color: #2f2f2f;
+  background-color: #f9f7f1;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border-style: none;
+}
+
+.commentBtn {
+  color: #2f2f2f;
+  background-color: #f9f7f1;
+  margin:10px;
+  border-radius: 5px;
+  border-style: none;
+}
+
+.editButton2:hover,.editButton2:focus,.editButton2:active,.commentBtn:hover,.commentBtn:focus,.commentBtn:active,.inspMeButton:hover,.inspMeButton:focus,.inspMeButton:active,.inspResButton:hover,.inspResButton:focus,.inspResButton:active {
+  background-color: #2f2f2f;
+  color:#f39c38;
+  border-color: #2f2f2f;
+}
+
+
+.dateAndtime{
+  font-weight: bolder;
   margin-top:10px;
   width:100%;
   border: 2px solid;
-  box-shadow:7px 7px 7px #8d8d8d;
   font-weight: bolder;
 
+}
+
+.editButton2{
+  margin-top: 10px;
+}
+
+.inspMe,.inspResButton,.inspResult,.inspMeButton,.commentBtn, .inspComment, .editButton2 {
+  box-shadow:7px 7px 7px #8d8d8d;
+  border:2px solid;
+  border-color: #2f2f2f;
+  border-radius: 5px;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
+@media only screen and (max-width: 991px) {
+  .inspMe, .inspResult {
+    width: 100%;
+  }
+  .inspMeTitle {
+    display:block;
+    margin:0 auto;
+  }
+   .inspRes {
+    width:30%;
+    margin:10px;
+    display: inline-block;
+  }
+  .inspMeResult{
+    width:100%;
+    }
+}
 
+@media only screen and (max-width: 767px) {
+.col-2{
+  flex:none;
+  width:100%
+}
+.col-10{
+  flex:none;
+  width:100%
+}
+.card-title{
+width:30%;
+display: inline;
+}
+
+.commentBtn{
+  width:30%
+}
+
+}
+
+
+@media only screen and (max-width: 584px) {
+  .inspMe,.inspResButton,.inspResult,.inspMeButton,.commentBtn, .inspComment, .editButton2 {
+    box-shadow: none;
+  }
+
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -56,3 +176,6 @@ body {
   color: #2f2f2f;
   background-color: #f9f7f1;
 }
+
+
+

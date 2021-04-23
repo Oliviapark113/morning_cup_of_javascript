@@ -107,13 +107,15 @@ const Inspiration = () => {
                 <InspirationCheckboxes onChange={handleChange} />
             </Row>
             <Row>
-                <Col className="col-8">
-                    <div className="d-grid gap-2 col-6 mx-auto">
-                        <RandomButton className="btn btn-primary" onClick={handleClick} type="button">INSPIRE ME!!</RandomButton>
+                <Col className="inspMe">
+                    <div className="">
+                        <h3 className="inspMeTitle">Inspiration Generator</h3>
+                        <p>This Inspiration Generator works in a Magical, Mystical and Fantastical ways to generate a list of components that will challenge your Developer skills, choose what your random inspiration button will generate up above</p>
+                        <RandomButton className="inspMeButton" onClick={handleClick} type="button">INSPIRE ME!!</RandomButton>
                     </div>
                 </Col>
                 <Col
-                    className="col-4">
+                    className="inspResult">
                     <InspirationResults
 
                         npm={checkboxes.npm=== true? idea.npm.name : ""}
