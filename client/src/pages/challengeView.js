@@ -43,15 +43,13 @@ const ChallengeView = () => {
   const location = useLocation();
   console.log(location)
 
-  const challenge = Marked(location.state.description)
-  console.log(challenge)
+  const challengeCode = Marked(location.state.description)
+  console.log(challengeCode)
 
 
   const { user } = useAuth0();
   const onChange = (newValue) => {
- 
-      setSaveAnswer(newValue)
-     
+      setSaveAnswer(newValue)   
   }
 
   const handleEditorTheme = e => {
@@ -90,19 +88,21 @@ const ChallengeView = () => {
   const rankColor = difficulty === "EASY" ? "easy-color" : "hard-color"
 
 
-
   return(
+    
     <Container className="view-container">
       <Row className ="view-row">
-      <Col className="col-md-5 challenge-list">
+      <Col className="col-md-6 challenge-list">
         <div className="card" >
           <div className="card-body">
             <h5 className="card-title">{location.state.name}</h5>
             <h6 className={`card-subtitle mb-2 text-muted rank ${rankColor}`}>{difficulty}</h6>
-            <div dangerouslySetInnerHTML={{__html: challenge}} className="card-text"/>
+            <div dangerouslySetInnerHTML={{__html: challengeCode}} className="card-text"/>
+            <div className="card-items">
             <Link to="/challenges" className="card-link">Back</Link>
-            <a href={location.state.url} target="_blank" rel="noreferrer" className="card-link">CodeWars Link</a>
-            <button className = "btn btn-danger" onClick={()=>dispatch("add")}> <BsFillHeartFill /> </button> {count} Likes
+            <a href={location.state.url} target="_blank" rel="noreferrer" className="card-link">CodeWarsLink</a>
+            <button className = "likes-btn" onClick={()=>dispatch("add")}> <BsFillHeartFill className="likes-icon"/> </button> {count} Likes
+            </div>
           </div>
         </div>
       </Col>
