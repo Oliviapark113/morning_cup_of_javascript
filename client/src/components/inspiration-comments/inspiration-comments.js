@@ -68,7 +68,10 @@ const Comments = () => {
         // console.log(e.target[0].id)
         console.log(e.target[1])
         if(e.target[0].value==="") {
-            setModalShow(true)   
+            setModalShow(true)
+            const target = e.target.children[1]
+            e.target[1].classList.toggle("editButton")
+            target.toggleAttribute("disabled")   
         } else {
             API.updateComment(e.target[0].id, {body:e.target[0].value}).then(resp => {console.log(resp)
                 console.log(e.target.children[1])
