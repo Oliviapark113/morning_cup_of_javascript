@@ -24,7 +24,6 @@ const Home = () => {
         const url = `https://newsapi.org/v2/top-headlines?category=technology&country=us&country=gb&${isAuthenticated ?"pageSize=100&":""}apiKey=${process.env.REACT_APP_NEWS_API_KEY}`;
         axios.get(url)
             .then(resp => {
-                console.log(resp.data.articles)
                 setArticles(resp.data.articles)
             }).catch(err => console.log(err))
     }
@@ -38,15 +37,13 @@ else {
     e.target.innerHTML="Read More"
 }
 
-console.log(e.target.parentNode.children[4].innerHTML==="Read Less")
 if(e.target.parentNode.children[4].innerHTML==="Read Less")
 e.target.parentNode.children[3].classList.toggle("articleReadMore")
 else {
     e.target.parentNode.children[4].classList.toggle("articleReadMore")
 }
 
-console.log(e.target.parentNode.children[4])
-console.log(e)
+
 
 
     }
