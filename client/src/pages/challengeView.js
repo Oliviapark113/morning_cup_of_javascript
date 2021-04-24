@@ -77,9 +77,9 @@ const ChallengeView = () => {
     <Container className="view-container">
       <Row className="view-row">
         <Col className="col-md-6 challenge-list">
-          <div className="card" >
+          <div className="challengeCard card" >
             <div className="card-body">
-              <h5 className="card-title">{location.state.name}</h5>
+              <h5 className="challenge-title card-title">{location.state.name}</h5>
               <h6 className={`card-subtitle mb-2 text-muted rank ${rankColor}`}>{difficulty}</h6>
               <div dangerouslySetInnerHTML={{ __html:cleanChallengeCode }} className="card-text" />
               <div className="card-items">

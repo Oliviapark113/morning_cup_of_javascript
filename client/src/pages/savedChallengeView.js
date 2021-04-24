@@ -77,7 +77,7 @@ const SavedChallengeView = () => {
     <Container className="view-container">
       <Row className="view-row">
         <Col className="col-md-6 challenge-list">
-          <div className="card" >
+          <div className="card challengeCard" >
             <div className="card-body">
               <h5 className="card-name">{location.state.name}</h5>
               <h6 className={`card-subtitle mb-2 text-muted rank ${rankColor}`}>{difficulty}</h6>

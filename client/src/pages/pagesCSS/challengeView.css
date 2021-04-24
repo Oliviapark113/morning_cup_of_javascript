@@ -13,13 +13,13 @@
 	flex-wrap: nowrap;
 	justify-content: space-evenly;
 }
-.card{
+.challengeCard{
 	margin-top:47px;
 	margin-left: 20px;
 	margin-right: 20px;
 	padding: 10px;
 }
-.card-title{
+.challenge-title{
 	font-family: 'Limelight', cursive;
 	font-size: 2rem;
 }
@@ -120,7 +120,7 @@
 		justify-content: space-evenly;
 	}
 
-	.card {
+	.challengeCard {
 		margin: 20px;
 		padding: 10px;
 	}

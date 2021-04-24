@@ -13,7 +13,7 @@
 	flex-wrap: nowrap;
 	justify-content: space-evenly;
 }
-.card{
+.challengeCard{
 	margin-top:47px;
 	margin-left: 20px;
 	margin-right: 20px;
@@ -133,7 +133,7 @@
 		justify-content: space-evenly;
 	}
 
-	.card {
+	.challengeCard{
 		margin: 20px;
 		padding: 10px;
 	}
