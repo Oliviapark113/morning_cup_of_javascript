@@ -3,7 +3,7 @@ import React from "react"
 const CommentsInput = (props) => {
  
   return  (
-        <div className='inspResult'>
+        <div className='inspInput'>
             <form onSubmit={props.onSubmit}>
               <h3 className="inspMeTitle">Made something? Found something? Tell us about your adventure:</h3>
                 <textarea className='form-control' id="userComments"/>
