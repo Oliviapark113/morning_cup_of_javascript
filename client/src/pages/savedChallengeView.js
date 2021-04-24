@@ -2,16 +2,15 @@ import React, {useState} from "react"
 import Container from "../components/container/container"
 import Marked from "marked"
 import DOMPurify from 'dompurify';
-
+import { useAuth0 } from "@auth0/auth0-react";
+import NotSignedIn from "../components/user-not-signed/user-not-signed"
 import {
   Link,
   useLocation,
   useHistory
 } from "react-router-dom";
-
 import Row from "../components/row/row"
 import Col from "../components/col/col"
-
 import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/theme-dracula";
@@ -26,18 +25,14 @@ import { FaSave } from "react-icons/fa";
 import "./pagesCSS/savedChallengeView.css"
 
 const SavedChallengeView = () => {
- 
+  
+  const { isAuthenticated } = useAuth0()
   const location = useLocation();
-
   const [updateAnswer, setUpdateAnswer] = useState(location.state.answer);
-
   const [editorTheme, setEditorTheme] = useState("dracula")
-
   const history = useHistory()
-
   const challengeCode = Marked(location.state.description)
   const cleanChallengeCode = DOMPurify.sanitize(challengeCode );
-
   const onChange = (newValue) => {
       setUpdateAnswer(newValue)  
   }
@@ -47,7 +42,6 @@ const SavedChallengeView = () => {
   }
 
   const handleUpdate = id => {
-
      const finalAnswer = {
        name:location.state.name ,
        url:location.state.url,
@@ -72,8 +66,7 @@ const SavedChallengeView = () => {
 
   const rankColor = difficulty === "EASY" ? "easy-color" : "hard-color"
 
-  return(
-
+  return (
     <Container className="view-container">
       <Row className="view-row">
         <Col className="col-md-6 challenge-list">
@@ -126,7 +119,9 @@ const SavedChallengeView = () => {
         </Col>
       </Row>
     </Container>
-    )
+
+)
 }
+
 
 export default SavedChallengeView
