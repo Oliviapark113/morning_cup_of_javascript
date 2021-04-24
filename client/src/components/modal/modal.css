@@ -2,12 +2,12 @@
     background: #2f2f2f;
   }
   
-  .text-styles {
+  .text-styles-modal {
     color: #f9f7f1;
     font-family: 'Limelight', cursive;
   }
   @supports (-webkit-text-stroke: 1px black) {
-    .text-styles {
+    #modal-h4, #modal-div {
       -webkit-text-stroke: 1px black;
     }
   }

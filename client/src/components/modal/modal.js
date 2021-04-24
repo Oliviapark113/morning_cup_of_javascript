@@ -13,11 +13,11 @@ function EditModal(props) {
       >
         <Modal.Header>
           <Modal.Title id="contained-modal-title-vcenter">
-            Commenter
+            <div id="modal-div">Commenter</div>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <h4>Please enter your edited text.</h4>
+          <h4 id="modal-h4">Please enter your edited text.</h4>
         </Modal.Body>
         <Modal.Footer>
           <Button className='commentBtn' onClick={props.onHide}>Close</Button>
