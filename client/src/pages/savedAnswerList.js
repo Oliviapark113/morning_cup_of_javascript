@@ -6,14 +6,15 @@ import Col from "../components/col/col"
 import { BsFillTrashFill} from "react-icons/bs";
 import { FaSave } from "react-icons/fa";
 import "./pagesCSS/savedAnswerList.css"
-
+import NotSignedIn from "../components/user-not-signed/user-not-signed"
+import { useAuth0 } from "@auth0/auth0-react";
 import {
     useHistory
   } from "react-router-dom";
 
 
   const SavedAnswerList = () => {
-
+    const { isAuthenticated } = useAuth0();
     const [saveList, setSaveList] = useState([])
 
     const history = useHistory()
@@ -52,6 +53,7 @@ import {
   }
 
     return(
+      <>  {isAuthenticated?
        <Container>
          <Row>
          <Col>
@@ -79,7 +81,8 @@ import {
          )}
          </Row>
        </Container>
-       
+       : <NotSignedIn/> }
+       </>
     )
 
   }

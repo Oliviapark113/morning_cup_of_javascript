@@ -2,7 +2,7 @@ import React, { useState} from "react"
 import Container from "../components/container/container"
 import Marked from "marked"
 import DOMPurify from 'dompurify';
-
+import NotSignedIn from "../components/user-not-signed/user-not-signed"
 import {
   Link,
   useLocation,
@@ -36,8 +36,8 @@ const ChallengeView = () => {
   const challengeCode = Marked(location.state.description)
   const cleanChallengeCode = DOMPurify.sanitize(challengeCode );
 
+  const { isAuthenticated } = useAuth0()
   const { user } = useAuth0();
-  
   const onChange = (newValue) => {
     setSaveAnswer(newValue)
   }
@@ -73,8 +73,8 @@ const ChallengeView = () => {
   const rankColor = difficulty === "EASY" ? "easy-color" : "hard-color"
 
   return (
-
-    <Container className="view-container">
+    <>{isAuthenticated?
+      <Container className="view-container">
       <Row className="view-row">
         <Col className="col-md-6 challenge-list">
           <div className="challengeCard card" >
@@ -124,7 +124,8 @@ const ChallengeView = () => {
           </Row>
         </Col>
       </Row>
-    </Container>
+    </Container> :<NotSignedIn/> }
+    </>
   )
 }
 
