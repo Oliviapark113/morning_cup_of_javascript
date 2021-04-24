@@ -3,13 +3,11 @@ import Container from "../components/container/container"
 import ChallengesAPI from "../utils/challengesAPI"
 import Row from "../components/row/row"
 import Col from "../components/col/col"
-import { BsFillTrashFill, BsFillArchiveFill} from "react-icons/bs";
+import { BsFillTrashFill} from "react-icons/bs";
 import { FaSave } from "react-icons/fa";
 import "./pagesCSS/savedAnswerList.css"
 
 import {
-    Link,
-    useLocation,
     useHistory
   } from "react-router-dom";
 
@@ -32,8 +30,6 @@ import {
       .catch(err => console.log(err))
     }
     
-    console.log(saveList)
-
     const handleView = id =>{
 
      const findSaveList = saveList.find(pickList =>{
@@ -47,9 +43,6 @@ import {
      
   }
   const handleDelete = id => {
-    const findDeleteList = saveList.find(deleteList => {
-      return deleteList._id === id
-    })
     ChallengesAPI.deleteAnswer(id)
       .then(response => {
         console.log(response)
@@ -69,7 +62,7 @@ import {
          {saveList.map(list =>
           
          ( 
-         <>    
+         <div key={list._id}>    
                <Row className="save-row">
                  <Col className="col-md-6">
                    <a href={list.url} target="_blank" rel="noreferrer" >{list.name}</a>
@@ -81,7 +74,7 @@ import {
                    <button className="btn-style" onClick={() => handleDelete(list._id)}><BsFillTrashFill className="delete-btn"/></button>
                  </Col>
                </Row>
-           </>
+           </div>
            )
          )}
          </Row>

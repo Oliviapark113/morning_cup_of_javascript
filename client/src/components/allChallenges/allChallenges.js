@@ -8,6 +8,7 @@ import './allChallenges.css'
 const AllChallenges = ({ challenges, handleView }) => (
 	<Col className="col-md-12">
 		{challenges.map(challenge => {
+		
 			let difficulty = "EASY"
 			if (challenge.rank.id > -8) {
 				difficulty = "HARD"
@@ -15,8 +16,8 @@ const AllChallenges = ({ challenges, handleView }) => (
 			const rankColor = difficulty === "EASY" ? "easy-color" : "hard-color"
 
 			return (
-				<Container>
-					<Row className="challenge-row" key={challenge.id}>
+				<Container key={challenge.id}>
+					<Row className="challenge-row" >
 						<Col className="col-md-2 challenge-item">
 							<p className="name">{challenge.name}</p>
 						</Col>

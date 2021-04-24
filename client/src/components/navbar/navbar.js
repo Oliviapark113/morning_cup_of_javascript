@@ -7,7 +7,7 @@ import LogoutButton from "../logout-button/logout-button"
 import LoginButton from "../login-button/login-button"
 import SignupButton from "../sign-up/signup-button"
 
-import { BsFillArchiveFill, BsJustify } from "react-icons/bs";
+import { BsJustify } from "react-icons/bs";
 
 import '../../App.css'
 import './navbar.css'
@@ -17,7 +17,6 @@ const Navbar = () => {
 	const { isAuthenticated } = useAuth0();
 
 	const handleHamburger = () => {
-		// const toggleBtn = document.querySelector('.hamburger-btn')
 		const navList = document.querySelector('.navbar-items')
 		const rightNavList = document.querySelector('.right-nav')
 		navList.classList.toggle('active')
@@ -42,9 +41,6 @@ const Navbar = () => {
 						<li className="nav-item">
 							<Link to="/savedanswerlist" className="nav-link text-styles nav-list" aria-current="page" href="#">Saved</Link>
 						</li>
-						{/* <li className="nav-item">
-								<Link to="/jokes" className="nav-link" aria-current="page" href="#">Jokes</Link>
-						</li> */}
 					</ul>
 				</div>
 				<div className="container-fluid right-nav-container">

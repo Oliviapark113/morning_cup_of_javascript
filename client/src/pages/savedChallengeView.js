@@ -1,6 +1,7 @@
-import React, {useState, useEffect} from "react"
+import React, {useState} from "react"
 import Container from "../components/container/container"
 import Marked from "marked"
+import DOMPurify from 'dompurify';
 
 import {
   Link,
@@ -35,6 +36,7 @@ const SavedChallengeView = () => {
   const history = useHistory()
 
   const challengeCode = Marked(location.state.description)
+  const cleanChallengeCode = DOMPurify.sanitize(challengeCode );
 
   const onChange = (newValue) => {
       setUpdateAnswer(newValue)  
@@ -43,8 +45,6 @@ const SavedChallengeView = () => {
   const handleEditorTheme = e => {
     setEditorTheme(e.target.value)
   }
-
-  console.log(updateAnswer)
 
   const handleUpdate = id => {
 
@@ -56,7 +56,7 @@ const SavedChallengeView = () => {
        challengeId: id,
        answer : updateAnswer
      }
-     console.log(finalAnswer)
+  
     ChallengesAPI.updateAnswer(finalAnswer.challengeId, finalAnswer)
     .then(response => {
       setUpdateAnswer(response.data.answer)
@@ -81,7 +81,7 @@ const SavedChallengeView = () => {
             <div className="card-body">
               <h5 className="card-name">{location.state.name}</h5>
               <h6 className={`card-subtitle mb-2 text-muted rank ${rankColor}`}>{difficulty}</h6>
-              <div dangerouslySetInnerHTML={{ __html: challengeCode }} className="card-text" />
+              <div dangerouslySetInnerHTML={{ __html: cleanChallengeCode}} className="card-text" />
               <div className="card-items">
                 <button className="link-btn">
                   <Link to="/challenges" className="card-link">Back</Link>
