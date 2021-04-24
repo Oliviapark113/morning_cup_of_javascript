@@ -83,7 +83,7 @@ width:20%;
   height: 40vmin;
   pointer-events: none;
 }
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 992px) {
   .inspMe,.inspResult {
     width: 100%;
   }
@@ -103,16 +103,31 @@ width:20%;
   .inspMeResult{
     width:100%;
     }
+    .col-2{
+      flex:none;
+      width:100%
+    }
+    .col-10{
+      flex:none;
+      width:100%
+    }
+    .card-title{
+      width:30%;
+      display: inline;
+      }
+      .commentBtn{
+        width:30%
+      }
 }
 @media only screen and (max-width: 767px) {
-.col-2{
+/* .col-2{
   flex:none;
   width:100%
 }
 .col-10{
   flex:none;
   width:100%
-}
+} */
 .card-title{
 width:30%;
 display: inline;
