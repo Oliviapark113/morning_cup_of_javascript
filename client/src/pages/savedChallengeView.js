@@ -25,7 +25,7 @@ import { FaSave } from "react-icons/fa";
 import "./pagesCSS/savedChallengeView.css"
 
 const SavedChallengeView = () => {
-  
+  const { loginWithRedirect } = useAuth0();
   const { isAuthenticated } = useAuth0()
   const location = useLocation();
   const [updateAnswer, setUpdateAnswer] = useState(location.state.answer);
