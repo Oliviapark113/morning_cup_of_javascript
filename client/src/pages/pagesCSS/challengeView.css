@@ -1,0 +1,127 @@
+.view-container{
+	margin-top: 20px;
+	display:flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	font-size: 1.5rem;
+}
+
+.view-row{
+	display:flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-evenly;
+}
+.card{
+	margin-top:47px;
+	margin-left: 20px;
+	margin-right: 20px;
+	padding: 10px;
+}
+.card-title{
+	font-family: 'Limelight', cursive;
+	font-size: 2rem;
+}
+
+.card-subtitle{
+	padding: 10px;
+	width: 20%;
+	font-size: large;
+	text-align: left;  
+}
+
+.card-items{
+	display: flex;
+	flex-direction: row;
+	justify-content:flex-start;
+	font-family: 'Limelight', cursive;
+	font-size: 1.2rem;  
+}
+
+.card-link{
+	margin: 0,10px;
+}
+.likes-btn{
+	border-style: none;
+	background: none;
+	margin-top:0px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.likes-icon{
+	color: rgb(238, 95, 95);
+	font-size: 2rem;
+}
+
+.editor{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: left;
+}
+
+.select-row{
+	margin-bottom: 20px;
+}
+
+.save-btn{
+	margin-top: 20px;
+	font-family: 'Limelight', cursive;
+	font-size: 1.2rem;
+	border-radius: 5px;
+	border-style: none;
+	box-shadow: 7px 7px 7px #8d8d8d;
+}
+
+.link-btn{
+	font-family: 'Limelight', cursive;
+	font-size: 1.2rem;
+	border-radius: 5px;
+	border-style: none;
+	box-shadow: 7px 7px 7px #8d8d8d;
+	margin: 10px;
+}
+
+
+.rank {
+	background-color: rgba(243, 156, 56, 0.7);
+	border-radius: 5px;
+	width: 65%;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+  
+.easy-color {
+	background-color: rgb(166, 241, 166);
+}
+
+.hard-color {
+	background-color: rgb(236, 127, 127)
+}
+
+
+@media (max-width: 991px) {
+
+	.view-container{
+		margin-top: 10px;
+		display:flex;
+		flex-direction: column;
+		flex-wrap: nowrap;
+		justify-content: center;
+		font-size: 1.5rem;
+	}
+
+	.view-row{
+		display:flex;
+		flex-direction: column;
+		flex-wrap: nowrap;
+		justify-content: space-evenly;
+	}
+
+	.card {
+		margin: 20px;
+		padding: 10px;
+	}
+}

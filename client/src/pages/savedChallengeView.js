@@ -1,5 +1,7 @@
-import React, {useState, useEffect} from "react"
+import React, {useState} from "react"
 import Container from "../components/container/container"
+import Marked from "marked"
+import DOMPurify from 'dompurify';
 
 import {
   Link,
@@ -13,27 +15,36 @@ import Col from "../components/col/col"
 import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/theme-dracula";
+import "ace-builds/src-noconflict/theme-dawn";
+import "ace-builds/src-noconflict/theme-chaos";
+import "ace-builds/src-noconflict/theme-cobalt";
+import "ace-builds/src-noconflict/theme-github";
+import "ace-builds/src-noconflict/theme-dreamweaver";
 import ChallengesAPI from "../utils/challengesAPI";
 
-
+import { FaSave } from "react-icons/fa";
+import "./pagesCSS/savedChallengeView.css"
 
 const SavedChallengeView = () => {
  
   const location = useLocation();
+
   const [updateAnswer, setUpdateAnswer] = useState(location.state.answer);
+
+  const [editorTheme, setEditorTheme] = useState("dracula")
 
   const history = useHistory()
 
- 
-  console.log(location)
-
+  const challengeCode = Marked(location.state.description)
+  const cleanChallengeCode = DOMPurify.sanitize(challengeCode );
 
   const onChange = (newValue) => {
-      setUpdateAnswer(newValue)
-     
+      setUpdateAnswer(newValue)  
   }
 
-  console.log(updateAnswer)
+  const handleEditorTheme = e => {
+    setEditorTheme(e.target.value)
+  }
 
   const handleUpdate = id => {
 
@@ -45,57 +56,75 @@ const SavedChallengeView = () => {
        challengeId: id,
        answer : updateAnswer
      }
-     console.log(finalAnswer)
-    ChallengesAPI.updateAnswer(finalAnswer.challengeId, finalAnswer)
-    .then(response => {setUpdateAnswer(response.data.answer)
   
+    ChallengesAPI.updateAnswer(finalAnswer.challengeId, finalAnswer)
+    .then(response => {
+      setUpdateAnswer(response.data.answer)
+      history.push("/savedanswerlist")
   })
     .catch(err => console.log(err))
-
   }
-  console.log(updateAnswer)
-
 
   let difficulty = "EASY"
   if(location.state.rank.id > -8 ) {
     difficulty = "HARD"
   }
 
+  const rankColor = difficulty === "EASY" ? "easy-color" : "hard-color"
+
   return(
-    <Container>
-      <Col classNameName="col-md-6 challenge-list">
-        <div classNameName="card" >
-          <div classNameName="card-body">
-            <h5 classNameName="card-title">{location.state.name}</h5>
-            <h6 classNameName="card-subtitle mb-2 text-muted">{difficulty}</h6>
-            <p classNameName="card-text">{location.state.description}</p>
-            <Link to="/challenges" classNameName="card-link">Back</Link>
-            <a href={location.state.url} target="_blank" rel="noreferrer" classNameName="card-link">CodeWars Link</a>
+
+    <Container className="view-container">
+      <Row className="view-row">
+        <Col className="col-md-6 challenge-list">
+          <div className="card" >
+            <div className="card-body">
+              <h5 className="card-name">{location.state.name}</h5>
+              <h6 className={`card-subtitle mb-2 text-muted rank ${rankColor}`}>{difficulty}</h6>
+              <div dangerouslySetInnerHTML={{ __html: cleanChallengeCode}} className="card-text" />
+              <div className="card-items">
+                <button className="link-btn">
+                  <Link to="/challenges" className="card-link">Back</Link>
+                </button>
+                <button className="link-btn">
+                  <a href={location.state.url} target="_blank" rel="noreferrer" className="card-link">CodeWars Link</a>
+                </button>
+              </div>
+            </div>
           </div>
-        </div>
-      </Col>
-      <Col classNameName="col-md-6 editor">
-        <AceEditor
-          mode="javascript"
-          theme="dracula"
-          onChange={onChange}
-          name="ANSWER_UNIQUE_ID"
-          defaultValue ={updateAnswer}
-          editorProps={{ $blockScrolling: true }}
-        />
-        <div className="card" style={{width: "18rem;"}}>
-          <ul className="list-group list-group-flush">
-            <li className="list-group-item">SAVED ANSWER</li>
-            <li className="list-group-item save-answer">{location.state.answer}</li>
-            <li className="list-group-item update-answer">{updateAnswer}</li>
-          </ul>
-        </div>
-      <Row>
-        <Col classNameName="col-md-3 button-container">
-          <button type="button" classNameName="btn btn-primary" onClick={()=>{handleUpdate(location.state._id)}}>UPDATE SAVED ANSWER</button>
+        </Col>
+        <Col className="col-md-6 editor">
+          <Row className="select-row">
+            <label htmlFor="theme">Choose a theme:</label>
+            <select name="theme" id="theme" onChange={handleEditorTheme}>
+              <option value="dracula">dracula</option>
+              <option value="dawn">dawn</option>
+              <option value="chaos">chaos</option>
+              <option value="cobalt">cobalt</option>
+              <option value="github">github</option>
+              <option value="dreamweaver">dreamweaver</option>
+            </select>
+            <br></br>
+          </Row>
+          <Row>
+            <AceEditor
+              mode="javascript"
+              theme={editorTheme}
+              onChange={onChange}
+              name="ANSWER_UNIQUE_ID"
+              defaultValue ={updateAnswer}
+              editorProps={{ $blockScrolling: true }}
+              width="700px"
+              fontSize="18px"
+            />
+          </Row>
+          <Row>
+            <Col className="col-md-6 button-container">
+              <button type="button" className="update-btn" onClick={()=>{handleUpdate(location.state._id)}}>< FaSave className="save-icon" /> UPDATE</button>
+            </Col>
+          </Row>
         </Col>
       </Row>
-      </Col>
     </Container>
     )
 }
