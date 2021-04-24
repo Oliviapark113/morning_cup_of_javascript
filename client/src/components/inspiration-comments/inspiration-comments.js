@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react"
-import { useAuth0 } from "@auth0/auth0-react";
+import { useAuth0 } from "@auth0/auth0-react"
 import Container from "../container/container"
 import Row from "../row/row"
 import CommentsInput from "../inspiration-input/inspiration-input"
 import API from "../../utils/commentsAPI"
 import CommentsCard from "../inspiration-card/inspiration-card"
+import EditModal from "../modal/modal"
 import "./style.css"
 
 
 const Comments = () => {
     const [comments, setComments] = useState([])
+    const [modalShow, setModalShow] = useState(false)
     const { user } = useAuth0();
 
     useEffect(() => {
@@ -56,7 +58,9 @@ const Comments = () => {
             getComments()
         })
         .catch(err => console.log(err))
-    }  
+    }
+    
+    
 
     function handleChange(e) {
         e.preventDefault()
@@ -64,7 +68,7 @@ const Comments = () => {
         // console.log(e.target[0].id)
         console.log(e.target[1])
         if(e.target[0].value==="") {
-
+            setModalShow(true)   
         } else {
             API.updateComment(e.target[0].id, {body:e.target[0].value}).then(resp => {console.log(resp)
                 console.log(e.target.children[1])
@@ -87,6 +91,7 @@ const Comments = () => {
     }
 
     return (
+        
         <Container>
             <Row>
                 <CommentsInput
@@ -103,7 +108,9 @@ const Comments = () => {
 
                 </Row>
             })}
+            <EditModal show={modalShow} onHide={() => setModalShow(false)}/>
         </Container>
+        
     )
 }
 

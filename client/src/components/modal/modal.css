@@ -1,0 +1,13 @@
+.background {
+    background: #2f2f2f;
+  }
+  
+  .text-styles {
+    color: #f9f7f1;
+    font-family: 'Limelight', cursive;
+  }
+  @supports (-webkit-text-stroke: 1px black) {
+    .text-styles {
+      -webkit-text-stroke: 1px black;
+    }
+  }
