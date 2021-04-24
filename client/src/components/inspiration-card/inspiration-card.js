@@ -7,7 +7,7 @@ import styled from 'styled-components'
 const CommentsCard = (props) => {
     const { user } = useAuth0();
     let StyleTextArea = styled.textarea`
-    height: 100fpx;
+    height: 100px;
     `
 
     // console.log(props.body.length)
