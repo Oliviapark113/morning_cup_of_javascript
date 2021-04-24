@@ -28,7 +28,13 @@ const answerSchema = new Schema({
     },
     userId: {
       type: String
-    }
+    },
+
+    // likes:[
+    //   String
+    // ]
+
+
 })
 console.log(Schema.DataTypes)
 

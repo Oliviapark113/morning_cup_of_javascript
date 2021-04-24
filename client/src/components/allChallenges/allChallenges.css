@@ -47,6 +47,14 @@ a:hover {
   padding-bottom: 3px;
 }
 
+.easy-color {
+  background-color: rgb(166, 241, 166);
+}
+
+.hard-color {
+  background-color: rgb(236, 127, 127)
+}
+
 .link-btn {
   color: #2f2f2f;
   background-color: #f9f7f1;
