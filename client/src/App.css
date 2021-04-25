@@ -118,17 +118,12 @@ width:20%;
       }
 }
 @media only screen and (max-width: 767px) {
-/* .col-2{
-  flex:none;
+.inspResult, .inspMeTitle, .inspRes{
   width:100%
 }
-.col-10{
-  flex:none;
-  width:100%
-} */
 .card-title{
-width:30%;
-display: inline;
+  display: flex;
+width:100%;
 }
 .commentBtn{
   width:30%
@@ -138,7 +133,10 @@ display: inline;
   .inspMe,.inspResButton,.inspResult,.inspMeButton,.commentBtn, .inspComment, .editButton2 {
     box-shadow: none;
   }
-}
+    .inspRes {
+      white-space: break-spaces;
+    }
+  }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
