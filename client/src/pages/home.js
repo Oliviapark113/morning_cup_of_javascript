@@ -21,9 +21,10 @@ const Home = () => {
     },[isAuthenticated]);
 
     function getNews() {
-        const url = `https://newsapi.org/v2/top-headlines?category=technology&country=us&country=gb&${isAuthenticated ?"pageSize=100&":""}apiKey=${process.env.REACT_APP_NEWS_API_KEY}`;
+        const url = `https://gnews.io/api/v4/top-headlines?topic=technology&lang=en&token=${process.env.REACT_APP_NEWS_API_KEY}`;
         axios.get(url)
             .then(resp => {
+                console.log(resp)
                 setArticles(resp.data.articles)
             }).catch(err => console.log(err))
     }
@@ -64,7 +65,7 @@ else {
                     <Col className="col-3" key={index}>
                         <Article
                             title={article.title}
-                            img={article.urlToImage === null ? "" : `${article.urlToImage}`}
+                            img={article.image === null ? "" : `${article.image}`}
                             author={article.author === null ? "" : `${article.author}`}
                             desc={article.description === null ? "" : `${article.description}`}
                             content={article.content === null ? "" : `${article.content}`}
