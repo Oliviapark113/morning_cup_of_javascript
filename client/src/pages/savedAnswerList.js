@@ -15,6 +15,7 @@ import {
 
   const SavedAnswerList = () => {
     const { isAuthenticated } = useAuth0();
+    const { user } = useAuth0();
     const [saveList, setSaveList] = useState([])
 
     const history = useHistory()
@@ -36,7 +37,6 @@ import {
      const findSaveList = saveList.find(pickList =>{
         return pickList._id === id
       })
-      console.log(findSaveList)
       history.push({
           pathname: "/savedchallengeview",
           state: findSaveList
@@ -51,7 +51,6 @@ import {
       })
       .catch(err => console.log(err))
   }
-
     return(
       <>  {isAuthenticated?
        <Container>
@@ -61,10 +60,10 @@ import {
          </Col>
          </Row>
          <Row>
-         {saveList.map(list =>
-          
-         ( 
-         <div key={list._id}>    
+         {saveList.map(list =>( 
+           < div key={list._id}>
+{user.sub===list.userId?
+         <div >    
                <Row className="save-row">
                  <Col className="col-md-6">
                    <a href={list.url} target="_blank" rel="noreferrer" >{list.name}</a>
@@ -76,6 +75,7 @@ import {
                    <button className="btn-style" onClick={() => handleDelete(list._id)}><BsFillTrashFill className="delete-btn"/></button>
                  </Col>
                </Row>
+           </div> : null }
            </div>
            )
          )}

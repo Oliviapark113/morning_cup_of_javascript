@@ -20,23 +20,11 @@ const Home = () => {
     }, [isAuthenticated]);
 
     function getNews() {
-
-        const url2 = `https://gnews.io/api/v4/top-headlines?topic=technology&lang=en&token=${process.env.REACT_APP_NEWS_API_KEY}`
-        axios.get(url2)
-            .then(resp => {
-                console.log(resp.data.results)
-
-            }).catch(err => console.log(err))
-
-
-        if (isAuthenticated) {
-
             const url = `https://api.nytimes.com/svc/topstories/v2/technology.json?api-key=${process.env.REACT_APP_NEWS_API_KEY2}`;
 
             axios.get(url)
                 .then(resp => {
                     for (var i = 0; i < resp.data.results.length; i++) {
-                        console.log(resp.data.results[i])
                         setArticles(articles => [...articles, {
                             title: resp.data.results[i].title,
                             image: resp.data.results[i].multimedia[2].url,
@@ -48,7 +36,6 @@ const Home = () => {
                         }])
                     };
                 }).catch(err => console.log(err))
-        }
     }
 
     function onClickHandler(e) {
@@ -84,7 +71,6 @@ const Home = () => {
                     } else {
                         article.image = ""
                     }
-                    console.log()
                     const date = article.publishedAt.split("T")[0]
                     return (
                         <Col className="col-3" key={index}>
