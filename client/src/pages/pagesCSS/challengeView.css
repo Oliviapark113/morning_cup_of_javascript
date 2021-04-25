@@ -47,6 +47,7 @@
 	margin-top:0px;
 	margin-left: 10px;
 	margin-right: 10px;
+
 }
 
 .likes-icon{
@@ -67,7 +68,7 @@
 
 .save-btn{
 	margin-top: 20px;
-	font-family: 'Limelight', cursive;
+	font-family: 'IBM Plex Mono', monospace;
 	font-size: 1.2rem;
 	border-radius: 5px;
 	box-shadow: 7px 7px 7px #8d8d8d;

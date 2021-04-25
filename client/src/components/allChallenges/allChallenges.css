@@ -27,8 +27,9 @@ a:hover {
   border: solid #2f2f2f 2px;
   border-radius: 5px;
   box-shadow: 7px 7px 7px #8d8d8d;
-  font-family: 'Limelight', cursive;
-  font-size: 1.1rem;
+  /* font-family: 'Limelight', cursive; */
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1.5rem;
 }
 
 .challenge-item {
@@ -60,8 +61,40 @@ a:hover {
   background-color: #f9f7f1;
   box-shadow: 7px 7px 7px #8d8d8d;
   border-radius: 5px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: bolder;
+  font-size: 24px;
 }
 
 .link-btn:hover {
   color: #f39c38;
+}
+
+@media (max-width: 540px){
+
+
+  .challenge-row {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+
+  }
+
+  .rank{
+    width: 100%;
+    margin: auto;
+  }
+
+  p.rank{
+    width: 100%;
+  }
+
+  .rank-text{
+    width: 100%;
+  }
+
+
+
+
 }

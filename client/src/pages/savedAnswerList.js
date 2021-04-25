@@ -66,10 +66,10 @@ import {
          <div >    
                <Row className="save-row">
                  <Col className="col-md-6">
-                   <a href={list.url} target="_blank" rel="noreferrer" >{list.name}</a>
+                   <a className="challenge-link" href={list.url} target="_blank" rel="noreferrer" >{list.name}</a>
                  </Col>     
                  <Col className="col-md-3 challenge">
-                   <button className="btn-style" onClick={() => handleView(list._id)}>CHALLENGE</button>
+                   <button className="btn-style" onClick={() => handleView(list._id)}>Challenge</button>
                  </Col>
                  <Col className="col-md-1 delete">
                    <button className="btn-style" onClick={() => handleDelete(list._id)}><BsFillTrashFill className="delete-btn"/></button>
