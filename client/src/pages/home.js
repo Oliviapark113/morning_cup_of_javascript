@@ -12,7 +12,6 @@ import date from "date-and-time"
 const Home = () => {
     const [articles, setArticles] = useState([])
     const { isAuthenticated } = useAuth0();
-
     const now = new Date()
     const newDate = date.format(now, 'ddd, MMM DD YYYY')
 
