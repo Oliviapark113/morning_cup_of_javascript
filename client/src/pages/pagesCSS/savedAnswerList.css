@@ -14,6 +14,7 @@ body {
     box-shadow: 7px 7px 7px #8d8d8d;
     border:1px solid;
     border-radius: 5px;
+    font-weight: bolder;
   }
 
   .save-row{
@@ -27,8 +28,12 @@ body {
     border-radius: 5px;
     box-shadow: 7px 7px 7px #8d8d8d;
     font-size: 1.5rem;
-    font-family: 'Limelight', cursive;
+  
 
+  }
+  .challenge-link{
+    font-family: 'Limelight', cursive;
+    font-size: 1.5rem;
   }
 
 .delete-btn{
@@ -48,4 +53,19 @@ body {
     margin-top: 20px;
    
    
+}
+
+@media (max-width: 540px) {
+  .save-title{
+    text-align:center;
+  }
+  .save-row {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+
+  }
+	
+	
 }

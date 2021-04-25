@@ -12,7 +12,8 @@
   flex:none
 }
 .inspResButton,.inspMeTitle,.inspMeButton,.dateAndtime {
-  font-family: 'Limelight', cursive;
+  font-family:'IBM Plex Mono', monospace;
+  font-weight: bolder;
 }
 .inspMeResult{
 width:20%;
@@ -49,6 +50,7 @@ width:20%;
   background-color: #f9f7f1;
   margin-bottom: 10px;
   border-radius: 5px;
+  border: 1px solid #2f2f2f;
 }
 .commentBtn {
   color: #2f2f2f;
