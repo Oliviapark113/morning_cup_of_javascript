@@ -61,21 +61,30 @@ else {
                 </Col>
             </Row>
             <Row>
-                {articles.map((article, index) => (
-                    <Col className="col-3" key={index}>
-                        <Article
-                            title={article.title}
-                            img={article.image === null ? "" : `${article.image}`}
-                            author={article.author === null ? "" : `${article.author}`}
-                            desc={article.description === null ? "" : `${article.description}`}
-                            content={article.content === null ? "" : `${article.content}`}
-                            src={article.source.name}
-                            link={article.url}
-                            onClick={onClickHandler}
-
-                        />
-                    </Col>
-                )
+                {articles.map((article, index) => {
+                    if(article.image.includes(".jpg")||article.image.includes(".png")){
+                    } else {
+                         article.image = ""
+                    }
+        console.log()
+                const date = article.publishedAt.split("T")[0]
+                    return (
+                        <Col className="col-3" key={index}>
+                            <Article
+                                title={article.title}
+                                img={article.image === null ? "" : `${article.image}`}
+                                date={article.publishedAt === null ? "" : `${date}`}
+                                desc={article.description === null ? "" : `${article.description}`}
+                                content={article.content === null ? "" : `${article.content}`}
+                                src={article.source.name}
+                                link={article.url}
+                                onClick={onClickHandler}
+                                
+                                />
+                        </Col>
+                    )
+                    
+                }
                 )}
             </Row>
         </Container>
