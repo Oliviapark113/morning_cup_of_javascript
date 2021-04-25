@@ -2,8 +2,6 @@ import React, {useState} from "react"
 import Container from "../components/container/container"
 import Marked from "marked"
 import DOMPurify from 'dompurify';
-import { useAuth0 } from "@auth0/auth0-react";
-import NotSignedIn from "../components/user-not-signed/user-not-signed"
 import {
   Link,
   useLocation,
@@ -25,8 +23,7 @@ import { FaSave } from "react-icons/fa";
 import "./pagesCSS/savedChallengeView.css"
 
 const SavedChallengeView = () => {
-  const { loginWithRedirect } = useAuth0();
-  const { isAuthenticated } = useAuth0()
+
   const location = useLocation();
   const [updateAnswer, setUpdateAnswer] = useState(location.state.answer);
   const [editorTheme, setEditorTheme] = useState("dracula")

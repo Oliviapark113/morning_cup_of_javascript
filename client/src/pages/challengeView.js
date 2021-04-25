@@ -73,7 +73,7 @@ const ChallengeView = () => {
   const rankColor = difficulty === "EASY" ? "easy-color" : "hard-color"
 
   return (
-    <>
+    <> {isAuthenticated?
       <Container className="view-container">
       <Row className="view-row">
         <Col className="col-md-6 challenge-list">
@@ -124,8 +124,8 @@ const ChallengeView = () => {
           </Row>
         </Col>
       </Row>
-    </Container> 
-    </>
+    </Container> : <NotSignedIn/>}
+    </> 
   )
 }
 

@@ -6,7 +6,7 @@
 }
 .inspMe{
   margin-top: 10px;
-  border:2px solid;
+  border:1px solid;
   width:70%;
   margin-right: 10px;
   flex:none
@@ -25,7 +25,7 @@ width:20%;
 }
 .inspInput{
   margin-top: 10px;
-  border:2px solid;
+  border:1px solid;
   background-color: #f9f7f1;
   margin-bottom: 10px;
   margin-left: 12px;
@@ -33,12 +33,12 @@ width:20%;
 }
 .inspResult{
   margin-top: 10px;
-  border:2px solid;
+  border:1px solid;
   background-color: #f9f7f1;
   margin-bottom: 10px;
 }
 .inspComment{
-  border:2px solid;
+  border:1px solid;
   background-color: #f9f7f1;
   border-radius: 5px;
 }
@@ -49,14 +49,12 @@ width:20%;
   background-color: #f9f7f1;
   margin-bottom: 10px;
   border-radius: 5px;
-  border-style: none;
 }
 .commentBtn {
   color: #2f2f2f;
   background-color: #f9f7f1;
   margin:10px;
   border-radius: 5px;
-  border-style: none;
 }
 .editButton2:hover,.editButton2:focus,.editButton2:active,.commentBtn:hover,.commentBtn:focus,.commentBtn:active,.inspMeButton:hover,.inspMeButton:focus,.inspMeButton:active,.inspResButton:hover,.inspResButton:focus,.inspResButton:active {
   background-color: #2f2f2f;
@@ -67,15 +65,15 @@ width:20%;
   font-weight: bolder;
   margin-top:10px;
   width:100%;
-  border: 2px solid;
+  border: 1px solid;
   font-weight: bolder;
 }
 .editButton2{
   margin-top: 10px;
 }
-.inspMe,.inspInput,.inspResButton,.inspResult,.inspMeButton,.commentBtn, .inspComment, .editButton2 {
+.inspMe,.inspInput,.inspResButton,.inspResult,.inspMeButton,.commentBtn, .inspComment, .editButton2, .link-btn {
   box-shadow:7px 7px 7px #8d8d8d;
-  border:2px solid;
+  border:1x solid;
   border-color: #2f2f2f;
   border-radius: 5px;
 }
