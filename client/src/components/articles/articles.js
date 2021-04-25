@@ -6,6 +6,7 @@ import { SiCoffeescript } from "react-icons/si";
 const Article = (
   {title, img, date, desc, content, src, link, onClick}
   ) => {
+    console.log(link)
 const image = <img src={img} className="img-fluid img altImage" alt={title}/>
   return (
     <div className="card articleCard">
