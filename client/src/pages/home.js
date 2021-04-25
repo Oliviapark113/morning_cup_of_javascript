@@ -22,7 +22,7 @@ const Home = () => {
 
     function getNews() {
  
-          const url2 = `GET https://gnews.io/api/v4/top-headlines?topic=technology&lang=en&token={process.env.REACT_APP_NEWS_API_KEY}`
+          const url2 = `GET https://gnews.io/api/v4/top-headlines?topic=technology&lang=en&token=${process.env.REACT_APP_NEWS_API_KEY}`
             axios.get(url2)
                 .then(resp => {
                     console.log(resp.data.results)
