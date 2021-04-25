@@ -4,6 +4,8 @@
     padding: 10px;
     background: #2f2f2f;
     color: #f9f7f1;
+    margin-top: 100px;
+    margin-bottom:0px;
   }
   .footer-list{
     display: flex;
@@ -11,107 +13,60 @@
     justify-content: flex-start;
     align-self: flex-start;
     list-style: none;
+    padding: 0px;
+  }
+
+  .developers{
+    text-align:left;
+    font-weight: bolder;
   }
 
   .footer-item{
+    margin-right:5px;
     
   }
 
   .github-icon{
       color: #f9f7f1;
+      margin:5px;
   }
-  
-  .navbar-brand {
-    margin-left: 20px;
+
+  .license{
+    display: block;
+    margin: auto;
+
   }
-  
-  .right-nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    list-style: none;
+ img {
+   display: block;
+   margin: auto;
+   max-width: 480px;
   }
-  .background {
-    background: #2f2f2f;
-  }
-  
-  .text-styles {
-    color: #f9f7f1;
-    font-family: 'Limelight', cursive;
-  }
-  
-  .github-icon:hover {
-    color: #f39c38;
-  }
-  
-  .navbar-toggler {
-    background-color: #f9f7f1;
-    color: #f39c38;
-  }
-  
-  .navbar-toggler-icon {
-    background-color: #2f2f2f;
-  }
-  
-  .hamburger-styles {
-    font-size: 2rem;
-    color: #f9f7f1;
-  }
-  
-  .hamburger-btn {
-    background-color: transparent;
-    border-style: none;
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    display: none;
-  }
-  
-  .right-nav {
-    margin-bottom: 0rem;
-  }
+   
+ 
   
   @media (max-width: 992px) {
-    .navbar-item container{
+    .footer-row {
       display: flex;
       flex-direction: column;
-    }
-   
-    .navbar-items{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
-      display: none;
+       align-items: center;
+      padding: 10px;
+    
     }
-  
-    .right-nav-container{
+    .developers{
+      text-align: center;
+
+    }
+    .footer-list{
       display: flex;
       flex-direction: column;
-    }
-    .right-nav {
-      display: none;
-     
-    }
-  
-    .hamburger-btn {
-      position: absolute;
-      right: 10px;
-      top: 10px;
-      display: block;
-    }
-    .navbar-items.active {
-      display: flex;
-    }
-    .right-nav.active {
-      display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
+      align-self: flex-start;
       list-style: none;
-      padding-right: .75rem;
-      padding-left: .75rem;
-      margin-right: auto;
-      margin-left: auto;
-    } 
+      text-align: center;
+      padding: 0px;
+      margin-left: 0px;
+    }
   }
   
