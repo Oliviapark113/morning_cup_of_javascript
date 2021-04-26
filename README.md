@@ -233,7 +233,7 @@ https://dev.codewars.com/#code-challenges-api
 
 <a href="https://github.com/Pete-Scale">Pete Scale</a>
 
-<a href="https://github.com/Nvrtis/Nvrtis.github.io">Nicholas Vrtis</a>
+<a href="https://github.com/Nvrtis">Nicholas Vrtis</a>
 
 <a href="https://github.com/Geoff7709">Geoffrey Zimmerman</a>
 
