@@ -11,7 +11,7 @@ const image = <img src={img} className="img-fluid img altImage" alt={title}/>
     <div className="card articleCard">
       <div className="card-body">
         <h5 className="card-title articleTitle">{title}</h5>
-        {img==="" ? <SiCoffeescript className="standardImg img-fluid img" /> :image }   
+        {img==="" ? <SiCoffeescript className="standardImg img-fluid img artImg" /> :image }   
         {date==="" ? null :<p className="card-text">{date}</p>} 
         {desc==="" ? null :<p className="card-text">Description: {desc}</p>}    
         {content==="" ? null :<p className="card-text articleReadMore">{content}</p>}   
