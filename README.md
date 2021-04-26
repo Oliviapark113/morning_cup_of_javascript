@@ -33,7 +33,7 @@ A full stack MERN application that caters to the JavaScript enthuiasts who are l
 
 ## Table of Contents
 
-[Links](#link)
+[Links](#links)
 
 [Description](#description)
 
@@ -48,7 +48,6 @@ A full stack MERN application that caters to the JavaScript enthuiasts who are l
 [License](#license)
 
 [Contributors](#contributors)
-
 
 [Credits](#credits)
 
@@ -102,11 +101,11 @@ NPM:
 
     https://secure-wave-92624.herokuapp.com/
 
-2. Click &nbsp;`Sign Up`
+2. Click &nbsp;`Sign Up` **Button**
 
     **This will redirect you to the Auth0 sign up page*
 
-4. Click &nbsp;`Log In` for returning visits to the site
+4. Click &nbsp;`Log In` **Button** for returning visits to the site
 
 5. Click any of the **Links** in the **Navbar** to navigate through the different pages of the site
 
@@ -114,7 +113,7 @@ NPM:
 
     Click the &nbsp;![hamburger_icon](./assets/hamburger-icon.png) &nbsp;**Button** to reveal the page **Links**
 
-6. Click &nbsp;`Log Out` to change users
+6. Click &nbsp;`Log Out` **Button** to change users
 
 <br>
 
@@ -128,7 +127,7 @@ NPM:
 
     * **Description** summary of each article
 
-    * Click `Link To Article At New York Times` to read the full article.
+    * Click `Link To Article At New York Times` **Button** to read the full article.
 
 2. **Inspiration**
 
