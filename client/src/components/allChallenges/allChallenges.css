@@ -23,11 +23,10 @@ a:hover {
   flex-wrap: nowrap;
   justify-content: space-between;
   padding: 20px;
-  margin: 20px;
+  margin: 10px;
   border: solid #2f2f2f 2px;
   border-radius: 5px;
   box-shadow: 7px 7px 7px #8d8d8d;
-  /* font-family: 'Limelight', cursive; */
   font-family: 'IBM Plex Mono', monospace;
   font-size: 1.5rem;
 }
@@ -69,6 +68,7 @@ a:hover {
 .link-btn:hover {
   color: #f39c38;
 }
+
 
 @media (max-width: 540px){
 

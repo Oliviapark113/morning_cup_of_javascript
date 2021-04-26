@@ -16,7 +16,7 @@ import Profile from './pages/profile'
 import ChallengeView from './pages/challengeView';
 import SavedAnswerList from './pages/savedAnswerList';
 import SavedChallengeView from './pages/savedChallengeView';
-import PageFooter from './components/footer/footer'
+// import PageFooter from './components/footer/footer'
 
 
 function App() {
@@ -53,7 +53,7 @@ function App() {
         <Home />
       </Route>
     </Switch>
-    <PageFooter/>
+    {/* <PageFooter/> */}
   </Router>
   );
 }

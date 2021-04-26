@@ -93,6 +93,7 @@ const Home = () => {
                 }
                 )}
             </Row>
+            <div className="space-div"></div>
         </Container>
     )
 }

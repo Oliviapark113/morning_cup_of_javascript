@@ -119,6 +119,10 @@ width:20%;
         width:30%
       }
 }
+
+.space-div{
+  display: none;
+}
 @media only screen and (max-width: 767px) {
 .inspResult, .inspMeTitle, .inspRes{
   width:100%
@@ -129,6 +133,11 @@ width:100%;
 }
 .commentBtn{
   width:30%
+}
+
+.space-div{
+  display: block;
+ margin-bottom: 200px;
 }
 }
 @media only screen and (max-width: 584px) {

@@ -31,6 +31,7 @@ const AllChallenges = ({ challenges, handleView }) => (
 							<button className="view-detail link-btn"><a className="url" href={challenge.url}>Link</a></button>
 						</Col>
 					</Row>
+
 				</Container>
 			)
 		}
