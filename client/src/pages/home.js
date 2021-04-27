@@ -26,7 +26,6 @@ const Home = () => {
             axios.get(url)
                 .then(resp => {
                     for (var i = 0; i < resp.data.results.length; i++) {
-    console.log(resp.data.results)
                         setArticles(articles => [...articles, {
                             title: resp.data.results[i].title,
                             image: resp.data.results[i].multimedia===null? "" : resp.data.results[i].multimedia[2].url,
