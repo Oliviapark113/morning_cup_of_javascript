@@ -31,9 +31,9 @@ const answerSchema = new Schema({
       type: String
     },
 
-    // likes:[
-    //   String
-    // ]
+    likes:[
+      String
+    ] 
 
 
 })

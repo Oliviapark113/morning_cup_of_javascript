@@ -1,4 +1,4 @@
-import React, { useState} from "react"
+import React, { useState, useReducer} from "react"
 import Container from "../components/container/container"
 import Marked from "marked"
 import DOMPurify from 'dompurify';
@@ -22,6 +22,7 @@ import "ace-builds/src-noconflict/theme-dreamweaver";
 import ChallengesAPI from "../utils/challengesAPI";
 import { useAuth0 } from "@auth0/auth0-react";
 import { FaSave } from "react-icons/fa";
+
 import "./pagesCSS/challengeView.css"
 
 const ChallengeView = () => {
@@ -72,6 +73,12 @@ const ChallengeView = () => {
 
   const rankColor = difficulty === "EASY" ? "easy-color" : "hard-color"
 
+  // const [count, dispatch] = useReducer((state, action)=>{
+  //       if(action === "add"){
+  //         return state +1 ;
+  //       }
+  // },0)
+
   return (
     <> {isAuthenticated?
       <Container className="view-container">
@@ -89,6 +96,7 @@ const ChallengeView = () => {
                 <button className="link-btn">
                   <a href={location.state.url} target="_blank" rel="noreferrer" className="card-link">CodeWarsLink</a>
                 </button>
+
               </div>
             </div>
           </div>
