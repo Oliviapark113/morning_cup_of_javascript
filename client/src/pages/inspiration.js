@@ -50,9 +50,6 @@ const Inspiration = () => {
         const npmTerm = arrayRandomizer(Arrays.searchArray)
         const apiObject = arrayRandomizer(Arrays.apiArray)
         const frameObject = arrayRandomizer(Arrays.frameworkArray)
-        console.log(npmTerm)
-        console.log(apiObject)
-        console.log(frameObject)
         setIdea(
             {
                 npm: { name: npmTerm },

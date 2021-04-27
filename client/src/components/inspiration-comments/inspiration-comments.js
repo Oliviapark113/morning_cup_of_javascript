@@ -64,8 +64,6 @@ const Comments = () => {
 
     function handleChange(e) {
         e.preventDefault()
-        // console.log(e.target[0].value)
-        // console.log(e.target[0].id)
         console.log(e.target[1])
         if(e.target[0].value==="") {
             setModalShow(true)
