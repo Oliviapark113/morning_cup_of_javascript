@@ -25,7 +25,7 @@ https://github.com/Oliviapark113/morning_cup_of_javascript
 
 ## Description
 
-A full stack MERN application that caters to the JavaScript enthuiasts who are looking for an all-in-one website. Users have access to tech news, coding challenges, and a project inspiration generator. 
+A full stack MERN application that caters to the JavaScript enthusiasts who are looking for an all-in-one website. Users have access to tech news, coding challenges, and a project inspiration generator. 
 
 <br>
 
