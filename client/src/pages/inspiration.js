@@ -72,7 +72,6 @@ const Inspiration = () => {
                     let lucky = searchResults.filter(function (npmPackage) {
                         return npmPackage.score.final > 0.4
                     });
-                    // console.log(lucky)
                     const searchNpm = lucky[Math.floor(Math.random() * lucky.length)]
                     console.log(searchNpm)
                     setIdea({ ...idea, npm: { ...idea.npm, locationUrl: searchNpm.package.links.npm } })
