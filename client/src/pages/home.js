@@ -28,13 +28,14 @@ const Home = () => {
                     for (var i = 0; i < resp.data.results.length; i++) {
                         setArticles(articles => [...articles, {
                             title: resp.data.results[i].title,
-                            image: resp.data.results[i].multimedia[2].url,
+                            image: resp.data.results[i].multimedia===null? "" : resp.data.results[i].multimedia[2].url,
                             publishedAt: resp.data.results[i].created_date,
                             description: resp.data.results[i].abstract,
                             url: resp.data.results[i].url,
                             content: "",
                             source: { name: "New York Times" }
-                        }])
+                        }
+                    ])
                     };
                 }).catch(err => console.log(err))
     }
