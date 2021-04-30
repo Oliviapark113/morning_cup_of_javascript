@@ -75,7 +75,6 @@ const SavedChallengeView = () => {
     console.log(likes)
     console.log(userId)
    let updatedLikes
-       //if true, remove our userId from Likes 
        if(likes.includes(userId)){
          //if true ,if true, remove our userId from Likes 
          updatedLikes = likes.filter(id=>id !== userId)
