@@ -34,7 +34,8 @@ const Home = () => {
                             url: resp.data.results[i].url,
                             content: "",
                             source: { name: "New York Times" }
-                        }])
+                        }
+                    ])
                     };
                 }).catch(err => console.log(err))
     }
