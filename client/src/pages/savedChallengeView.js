@@ -142,7 +142,7 @@ const SavedChallengeView = () => {
             />
           </Row>
           <Row>
-            <Col className="col-md-6 button-container">
+            <Col className="col-md-5 button-container">
               <button type="button" className="update-btn" onClick={()=>{handleUpdate(location.state._id)}}>< FaSave className="save-icon" /> UPDATE</button>
             </Col>
           </Row>
